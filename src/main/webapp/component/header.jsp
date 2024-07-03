@@ -4,7 +4,7 @@
 
 			<!-- Header Upper -->
 			<div class="header-upper">
-				<div class="auto-container">
+				<div class="auto-container" style="/* max-width:1200px; */">
 					<div
 						class="d-flex justify-content-between align-items-center flex-wrap">
 
