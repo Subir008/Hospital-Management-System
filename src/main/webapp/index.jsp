@@ -1,5 +1,15 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="com.configuration.Configuration"%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%
+/* Connection connection = Configuration.configure();
+out.print(connection); */
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +31,7 @@
 
 		<!-- Header Added -->
 		<%@include file="component/header.jsp"%>
+
 
 
 		<!-- Sidebar Cart Item -->

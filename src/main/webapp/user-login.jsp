@@ -45,16 +45,16 @@
 										<!-- Login Form -->
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
-												style="color: rgb(249, 49, 59)">Sign Up</h4>
+												style="color: rgb(249, 49, 59)">Register</h4>
 											<form method="post"
-												action="https://html.themerange.net/merit/merit/index.html">
+												action="register">
 												<div class="form-group">
 													<label>Your Name</label> <input type="text" name="username"
 														value="" placeholder="Enter your name*" required>
 												</div>
 												<div class="form-group">
 													<label>Email address</label> <input type="email"
-														name="emaill" value="" placeholder="Enter Email Adress"
+														name="email" value="" placeholder="Enter Email Adress"
 														required>
 												</div>
 												<div class="form-group">
@@ -66,15 +66,15 @@
 													<div class="check-box">
 														<input type="checkbox" name="remember-password"
 															id="type-1"> <label for="type-1">I agree
-															to al <a href="terms.html">Terms</a> & <a
+															to all <a href="terms.html">Terms</a> & <a
 															href="privacy.html">Condition</a> and Feeds
 														</label>
 													</div>
 												</div>
 												<div class="form-group">
 													<button class="theme-btn btn-style-one">
-														<span class="btn-wrap"> <span class="text-one">sign
-																up</span> <span class="text-two">sign up</span>
+														<span class="btn-wrap"> <span class="text-one">Register
+															</span> <span class="text-two">Register</span>
 														</span>
 													</button>
 												</div>
