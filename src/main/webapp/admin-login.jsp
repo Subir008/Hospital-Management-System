@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +13,13 @@
 
 <!-- Adding css file Link -->
 <%@include file="component/css-file.jsp"%>
+
+<style type="text/css">
+
+.paint-card{
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+</style>
 
 </head>
 <body>
@@ -42,6 +54,45 @@
 				<div class="inner-container">
 					<div class="row clearfix">
 
+						<a:if test="${not empty emailIncorrect  }">
+							<div class="col-md-12 mb-5">
+								<div class="card">
+									<div class="card-body">
+
+										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+											Incorrect Email Id
+										</h3>
+									</div>
+								</div>
+							</div>
+							<a:remove var="emailIncorrect" scope="session" />
+						</a:if>
+
+						<a:if test="${not empty passwordIncorrect  }">
+							<div class="col-md-12 mb-5">
+								<div class="card">
+									<div class="card-body">
+										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+											Incorrect Password </h3>
+
+										<a:remove var="passwordIncorrect" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
+						
+						<a:if test="${not empty Incorrect  }">
+							<div class="col-md-12 mb-5">
+								<div class="card">
+									<div class="card-body">
+										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+											Incorrect Email Id & Password </h3>
+
+										<a:remove var="Incorrect" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
 
 						<div class="col-md-9 offset-md-2 mb-4">
 							<div class="card">
@@ -52,7 +103,7 @@
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
 												style="color: rgb(249, 49, 59)">Login here</h4>
-												
+
 											<form method="post" action="adminLogin">
 												<div class="form-group">
 													<label>Email address</label> <input type="email"
