@@ -12,31 +12,36 @@ import javax.servlet.http.HttpSession;
 import com.dto.User;
 
 @WebServlet("/adminLogin")
-public class AdminLogin extends HttpServlet
-{
+public class AdminLogin extends HttpServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-	{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String email = req.getParameter("admin_email");
 			String password = req.getParameter("admin_password");
-			
+
 			HttpSession session = req.getSession();
-			
+
 			String admin_email = "admin@gmail.com";
 			String admin_password = "admin";
-			
-			if(admin_email.equals(email) && admin_password.equals(password) )
-			{
+
+			if (admin_email.equals(email) && admin_password.equals(password)) {
 				session.setAttribute("adminObj", new User());
 				resp.sendRedirect("admin/index.jsp");
+			} else {
+				if (!admin_email.equals(email) && !admin_password.equals(password)) {
+					session.setAttribute("Incorrect", "Error");
+				} else if (!admin_password.equals(password)) {
+					session.setAttribute("passwordIncorrect", "Error");
+				} else if (!admin_email.equals(email)) {
+					session.setAttribute("emailIncorrect", "Error");
+				}
+				resp.sendRedirect("admin-login.jsp");
 			}
-			
-		}catch (Exception e)
-		{
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

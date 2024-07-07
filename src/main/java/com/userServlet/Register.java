@@ -43,7 +43,7 @@ public class Register extends HttpServlet
 		}else {
 			session.setAttribute("failed", "Something Went Wrong");
 			resp.sendRedirect("user-login.jsp");
-			System.out.println("Failed To Register ");
+			System.out.println("Something Went Wrong");
 		}
 		
 		
