@@ -52,18 +52,18 @@
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
 												style="color: rgb(249, 49, 59)">Login here</h4>
-											<form method="post"
-												action="https://html.themerange.net/merit/merit/index.html">
+												
+											<form method="post" action="adminLogin">
 												<div class="form-group">
 													<label>Email address</label> <input type="email"
-														name="emaill" value="" placeholder="Enter Email Adress"
-														required>
+														name="admin_email" value=""
+														placeholder="Enter Email Adress" required>
 												</div>
 
 												<div class="form-group">
 													<label>New Password</label> <input type="password"
-														name="password" value="" placeholder="Create password"
-														required>
+														name="admin_password" value=""
+														placeholder="Enter password" required>
 												</div>
 												<div class="form-group">
 													<div class="check-box">
