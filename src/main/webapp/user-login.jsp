@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored = "false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +11,7 @@
 
 <!-- Adding css file Link -->
 <%@include file="component/css-file.jsp"%>
+
 
 
 </head>
@@ -46,8 +50,7 @@
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
 												style="color: rgb(249, 49, 59)">Register</h4>
-											<form method="post"
-												action="register">
+											<form method="post" action="register">
 												<div class="form-group">
 													<label>Your Name</label> <input type="text" name="username"
 														value="" placeholder="Enter your name*" required>
@@ -74,7 +77,7 @@
 												<div class="form-group">
 													<button class="theme-btn btn-style-one">
 														<span class="btn-wrap"> <span class="text-one">Register
-															</span> <span class="text-two">Register</span>
+														</span> <span class="text-two">Register</span>
 														</span>
 													</button>
 												</div>
@@ -127,6 +130,36 @@
 								</div>
 							</div>
 						</div>
+
+						<a:if test="${not empty success  }">
+							<div class=col-md-12 mb-5>
+								<div class="card">
+									<div class="card-body">
+
+										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+											Account Created Successfully</h3>
+
+
+									</div>
+								</div>
+							</div>
+							<a:remove var="success" scope="session" />
+						</a:if>
+
+						<a:if test="${not empty failed  }">
+							<div class=col-md-12 mb-5>
+								<div class="card">
+									<div class="card-body">
+										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+											Something Went Wrong</h3>
+
+										<a:remove var="failed" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
+
+
 
 					</div>
 				</div>
