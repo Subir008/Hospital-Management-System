@@ -1,4 +1,4 @@
-package com.user;
+package com.userServlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -33,12 +33,16 @@ public class Register extends HttpServlet
 		
 		boolean flag = dao.UserRegister(user);
 		
-		HttpSession session = 
+		HttpSession session = req.getSession();
 		
 		if(flag)
 		{
+			session.setAttribute("success", "Register Successfull");
+			resp.sendRedirect("user-login.jsp");
 			System.out.println("Register Successfull");
 		}else {
+			session.setAttribute("failed", "Something Went Wrong");
+			resp.sendRedirect("user-login.jsp");
 			System.out.println("Failed To Register ");
 		}
 		
