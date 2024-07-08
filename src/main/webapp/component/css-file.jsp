@@ -19,6 +19,9 @@
 	type="image/x-icon">
 <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
 
+<!-- Font icon link -->
+<link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"

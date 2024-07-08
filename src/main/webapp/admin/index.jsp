@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Login</title>
 <%@include file="component/css-file.jsp"%>
 
 <style type="text/css">
@@ -19,40 +19,47 @@
 
 	<%@include file="component/navbar.jsp"%>
 
-	<p class="text-center fs-5">Admin Dashboard</p>
+	<h3 class="text-center mt-5 mb-3 ">Admin Dashboard</h3>
 
 	<div class="container p-3">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card paint-card">
 					<div class="card-body text-center text-success">
-						<i class="fas fa-user-md fa-x"></i>
-						<p class="card-text fs-4">Doctor</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+						<i class="fas fa-user-md fa-4x"></i>
+						<p class="card-text fs-4">Doctor <br> 5 </p>
+						
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+				<div class="card paint-card">
+					<div class="card-body text-center text-success">
+						<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
+						<p class="card-text fs-4">User <br> 50 </p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+				<div class="card paint-card">
+					<div class="card-body text-center text-success">
+						<i class="fa fa-calendar-check-o fa-4x" aria-hidden="true"></i>
+						<p class="card-text fs-4">Total Appointment <br> 450 </p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row mt-4">
+			<div class="col-md-4 ">
+				<div class="card paint-card">
+					<div class="card-body text-center text-success">
+						<i class="fa fa-address-card fa-4x" aria-hidden="true"></i>
+						<p class="card-text fs-4">Specialist <br> 50 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+			
 	</div>
 
 
