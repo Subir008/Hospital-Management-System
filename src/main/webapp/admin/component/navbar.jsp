@@ -22,12 +22,9 @@
 		<form class="form-inline my-2 my-lg-0">
 			<div class="dropdown">
 				<button class="btn btn-light dropdown-toggle" type="button"
-					data-toggle="dropdown" aria-expanded="false">Dropdown
-					button</button>
+					data-toggle="dropdown" aria-expanded="false">Admin</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
+					<a class="dropdown-item" href="logout.jsp">Log Out</a> 
 				</div>
 			</div>
 		</form>
