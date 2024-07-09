@@ -138,8 +138,20 @@
 			$('.mobile-menu .navigation li ul').slideUp(0);
         	}
 	    });
+	    
+	   
 		
 	}
+	
+	
+	// Not working
+	$(document).ready(function(){
+		 $('.userBtn').on('click' , function(){
+		$(this).css("display","block");
+	});
+	
+	});
+		
 	
 	
 	

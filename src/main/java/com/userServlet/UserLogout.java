@@ -1,4 +1,4 @@
-package com.adminServlet;
+package com.userServlet;
 
 import java.io.IOException;
 
@@ -9,20 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/logout")
-public class Logout extends HttpServlet
+@WebServlet("/userLogout")
+public class UserLogout extends HttpServlet
 {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
+		// Start the session
 		HttpSession session = req.getSession();
 		
-		session.removeAttribute("adminObj");
+		//Removing the previous session
+		session.removeAttribute("userObj");
 		
-		resp.sendRedirect("admin-login.jsp");
-		
-		session.setAttribute("logoutmessage", " Logout Successfull");
+		// Setting new session for showing logout successfull message and then redirect to another page 
+		session.setAttribute("logout", "Logout Successfully");
+
+		resp.sendRedirect("user-login.jsp");
 	}
 	
+
 }

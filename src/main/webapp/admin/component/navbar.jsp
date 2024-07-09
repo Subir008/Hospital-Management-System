@@ -24,7 +24,7 @@
 				<button class="btn btn-light dropdown-toggle" type="button"
 					data-toggle="dropdown" aria-expanded="false">Admin</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="logout.jsp">Log Out</a> 
+					<a class="dropdown-item" href="../logout">Log Out <nbsp><nbsp> <i class="fa-solid fa-right-from-bracket"></i></a> 
 				</div>
 			</div>
 		</form>

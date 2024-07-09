@@ -54,9 +54,10 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 				<div class="inner-container">
 					<div class="row clearfix">
 
+					<!-- Pop of Incorrect credentials start  -->
 						<a:if test="${not empty emailIncorrect  }">
 							<div class="col-md-12 mb-5">
-								<div class="card">
+								<div class="card paint-card">
 									<div class="card-body">
 
 										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
@@ -70,7 +71,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
 						<a:if test="${not empty passwordIncorrect  }">
 							<div class="col-md-12 mb-5">
-								<div class="card">
+								<div class="card paint-card">
 									<div class="card-body">
 										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
 											Incorrect Password </h3>
@@ -83,7 +84,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 						
 						<a:if test="${not empty Incorrect  }">
 							<div class="col-md-12 mb-5">
-								<div class="card">
+								<div class="card paint-card">
 									<div class="card-body">
 										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
 											Incorrect Email Id & Password </h3>
@@ -93,16 +94,31 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 								</div>
 							</div>
 						</a:if>
+				<!-- Pop of Incorrect credentials end -->
+
+						<!-- Pop up of logout message -->
+						<a:if test="${not empty logoutmessage  }">
+							<div class="col-md-12 mb-5">
+								<div class="card paint-card">
+									<div class="card-body">
+										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+											Logout Successfully </h3>
+
+										<a:remove var="logoutmessage" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
 
 						<div class="col-md-9 offset-md-2 mb-4">
-							<div class="card">
+							<div class="card paint-card">
 								<div class="card-body">
 									<!-- Column -->
 									<div class="column col-lg-12 col-md-12 col-sm-12">
 										<!-- Login Form -->
-										<div class="styled-form">
-											<h4 class="text-center font-weight-bold "
-												style="color: rgb(249, 49, 59)">Login here</h4>
+										<div class="styled-form ">
+											<h3 class="text-center font-weight-bold "
+												style="color: rgb(249, 49, 59)">Login here</h3>
 
 											<form method="post" action="adminLogin">
 												<div class="form-group">
