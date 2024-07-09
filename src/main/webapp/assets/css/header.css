@@ -1178,10 +1178,10 @@
 .main-header .search-box-btn{
 	position:relative;
 	display:block;
-	width:60px;
+	/* width:60px; */
 	cursor:pointer;
 	background:none;
-	padding:19px 0px;
+	padding:14px 0px 17px 10px;
 	text-align:center;
 	color:var(--color-four);
 	font-size:var(--font-20);
@@ -1190,8 +1190,9 @@
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
-	border-right:2px solid var(--color-five);
-}
+	/* border-right:2px solid var(--color-five);
+ */
+ }
 
 .main-header .outer-box .nav-btn{
 	position:relative;
@@ -1975,4 +1976,8 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
 /* Handle on hover */
 .about-sidebar .sidebar-inner::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.mobile-user{
+	display: block;
 }

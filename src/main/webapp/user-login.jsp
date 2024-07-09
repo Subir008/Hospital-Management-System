@@ -12,7 +12,12 @@
 <!-- Adding css file Link -->
 <%@include file="component/css-file.jsp"%>
 
+<style type="text/css">
 
+.paint-card{
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+</style>
 
 </head>
 <body>
@@ -41,9 +46,10 @@
 				<div class="inner-container">
 					<div class="row clearfix">
 
+						<!-- Popup of account creation -->
 						<a:if test="${not empty success  }">
 							<div class="col-md-12 mb-5">
-								<div class="card">
+								<div class="card paint-card">
 									<div class="card-body">
 
 										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
@@ -56,25 +62,54 @@
 							<a:remove var="success" scope="session" />
 						</a:if>
 
+						<!-- Pop up when Email Id Already Exists  -->
 						<a:if test="${not empty failed  }">
 							<div class="col-md-12 mb-5">
-								<div class="card">
+								<div class="card paint-card">
 									<div class="card-body">
 										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-											Something Went Wrong</h3>
+											Email Id Already Exists</h3>
 
 										<a:remove var="failed" scope="session" />
 									</div>
 								</div>
 							</div>
 						</a:if>
+						
+						<!-- Pop of Incorrect credentials  -->
+						<a:if test="${not empty incorrect  }">
+							<div class="col-md-12 mb-5">
+								<div class="card paint-card">
+									<div class="card-body">
+										<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+											Incorrect Email Id & Password </h3>
+
+										<a:remove var="incorrect" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
+						
+						<!-- Pop up of logout  -->
+						<a:if test="${not empty logout  }">
+							<div class="col-md-12 mb-5">
+								<div class="card paint-card">
+									<div class="card-body">
+										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+											Logout Successfull </h3>
+
+										<a:remove var="logout" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
 
 						<div class="col-md-6  mb-4">
-							<div class="card">
+							<div class="card paint-card">
 								<div class="card-body">
 									<!-- Column -->
 									<div class="column col-lg-12 col-md-12 col-sm-12">
-										<!-- Login Form -->
+										<!-- Register Form Start-->
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
 												style="color: rgb(249, 49, 59)">Register</h4>
@@ -111,6 +146,7 @@
 												</div>
 											</form>
 										</div>
+										<!-- Register Form End-->
 									</div>
 								</div>
 							</div>
@@ -118,24 +154,24 @@
 
 						<!-- Column -->
 						<div class="col-md-6  mb-4">
-							<div class="card">
+							<div class="card paint-card">
 								<div class="card-body">
 									<div class="column col-lg-12 col-md-12 col-sm-12">
-										<!-- Login Form -->
+										<!-- Login Form Start -->
 										<div class="styled-form">
 											<h4 class="text-center font-weight-bold "
 												style="color: rgb(249, 49, 59)">Login here</h4>
 											<form method="post"
-												action="https://html.themerange.net/merit/merit/index.html">
+												action="userLogin">
 												<div class="form-group">
 													<label>Email address</label> <input type="email"
-														name="emaill" value="" placeholder="Enter Email Adress"
+														name="user_email" value="" placeholder="Enter Email Adress"
 														required>
 												</div>
 
 												<div class="form-group">
 													<label>New Password</label> <input type="password"
-														name="password" value="" placeholder="Create password"
+														name="user_password" value="" placeholder="Enter password"
 														required>
 												</div>
 												<div class="form-group">
@@ -154,6 +190,7 @@
 												</div>
 											</form>
 										</div>
+										<!-- Login Form End-->
 									</div>
 								</div>
 							</div>
