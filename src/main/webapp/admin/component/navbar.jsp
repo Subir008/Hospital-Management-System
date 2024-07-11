@@ -12,12 +12,12 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="#">Home
+			<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link active" href="#">Doctor</a>
+			<li class="nav-item"><a class="nav-link active" href="doctor.jsp">Doctor</a>
 			</li>
-			<li class="nav-item"><a class="nav-link active">Patient</a></li>
+			<li class="nav-item"><a class="nav-link active" href="#">Patient</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<div class="dropdown">
