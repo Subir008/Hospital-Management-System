@@ -570,7 +570,7 @@ pre code {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin-right: -15px;
+	/* margin-right: -15px; */
 	margin-left: -15px
 }
 
@@ -4323,7 +4323,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .card-body {
 	-ms-flex: 1 1 auto;
 	flex: 1 1 auto;
-	padding: 1.25rem
+	padding-top: 2.3rem;
+	padding-bottom: 2.3rem
 }
 
 .card-title {

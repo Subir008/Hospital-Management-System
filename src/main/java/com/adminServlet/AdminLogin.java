@@ -17,11 +17,14 @@ public class AdminLogin extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			// Taking user data from the frontend
 			String email = req.getParameter("admin_email");
 			String password = req.getParameter("admin_password");
 
+			// Starting the Session
 			HttpSession session = req.getSession();
 
+			//Storing default login credentials to the variable
 			String admin_email = "admin@gmail.com";
 			String admin_password = "admin";
 
