@@ -193,7 +193,7 @@
 							id="navbarSupportedContent">
 
 							<div class="appointmeny_button-box">
-								<a href="#" class="theme-btn btn-style-one"> <span
+								<a href="user-appointment.jsp" class="theme-btn btn-style-one"> <span
 									class="btn-wrap"> <span class="text-one">Appoint
 											Now</span> <span class="text-two">Appoint Now</span>
 								</span>

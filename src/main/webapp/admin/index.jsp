@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Login</title>
+<title>Admin Panel</title>
 <%@include file="component/css-file.jsp"%>
 
 <style type="text/css">
