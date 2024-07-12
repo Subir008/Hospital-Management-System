@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Doctor Login</title>
 
 <%@include file="component/css-file.jsp"%>
+<style type="text/css">
+.paint-card {
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+</style>
 </head>
 <body>
 
@@ -40,28 +45,40 @@
 				<div class="inner-container">
 					<div class="row clearfix">
 
+						<!-- Pop up of logout message -->
+						<a:if test="${not empty logoutmessage  }">
+							<div class="col-md-12 mb-5">
+								<div class="card paint-card">
+									<div class="card-body">
+										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+											${logoutmessage}</h3>
+
+										<a:remove var="logoutmessage" scope="session" />
+									</div>
+								</div>
+							</div>
+						</a:if>
 
 						<div class="col-md-9 offset-md-2 mb-4">
-							<div class="card">
+							<div class="card paint-card">
 								<div class="card-body">
 									<!-- Column -->
 									<div class="column col-lg-12 col-md-12 col-sm-12">
 										<!-- Login Form -->
 										<div class="styled-form">
-											<h4 class="text-center font-weight-bold "
-												style="color: rgb(249, 49, 59)">Login here</h4>
-											<form method="post"
-												action="https://html.themerange.net/merit/merit/index.html">
+											<h3 class="text-center font-weight-bold "
+												style="color: rgb(249, 49, 59)">Login here</h3>
+											<form method="post" action="doctor-login">
 												<div class="form-group">
 													<label>Email address</label> <input type="email"
-														name="emaill" value="" placeholder="Enter Email Adress"
-														required>
+														name="doctor_email" value=""
+														placeholder="Enter Email Adress" required>
 												</div>
 
 												<div class="form-group">
 													<label>New Password</label> <input type="password"
-														name="password" value="" placeholder="Create password"
-														required>
+														name="doctor_password" value=""
+														placeholder="Create password" required>
 												</div>
 												<div class="form-group">
 													<div class="check-box">

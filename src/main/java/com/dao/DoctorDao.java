@@ -151,4 +151,35 @@ public class DoctorDao {
 		return flag;
 	}
 
+	// Doctor panel Login
+	public Doctor doctorLogin(String email, String password) throws SQLException
+	{
+		Doctor doctor = null ;
+		
+		String sql = "SELECT * FROM doctor_master WHERE email= ? AND password = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, password);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next())
+		{
+			doctor = new Doctor();
+
+			doctor.setDoc_id(rs.getInt(1));
+			doctor.setFull_name(rs.getString(2));
+			doctor.setDob(rs.getString(3));
+			doctor.setQualification(rs.getString(4));
+			doctor.setSpecialist(rs.getString(5));
+			doctor.setEmail(rs.getString(6));
+			doctor.setContact(rs.getString(7));
+			doctor.setPassword(rs.getString(8));
+			
+		}
+		
+		return doctor;
+	}
+	
 }
