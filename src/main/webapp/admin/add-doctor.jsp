@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Doctor</title>
+<title>Add Doctor</title>
 
 <%@include file="component/css-file.jsp"%>
 
@@ -27,6 +27,14 @@
 	font-size: 17px;
 }
 
+.list {
+	width: 160px;
+}
+
+.list-item {
+	display: flex;
+	justify-content: space-evenly;
+}
 </style>
 
 </head>
@@ -35,65 +43,76 @@
 
 	<div class="container-fluid p-3">
 		<div class="row">
-			<div class="col-md-12 d-flex justify-content-center">
+			<div class="col-md-7 offset-3">
 
-				<!-- Popup of Doctor Addition -->
+				<!-- Popup of Doctor Addition-->
 				<a:if test="${not empty Success  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
+					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-dialog-centered " role="document">
+							<div class="modal-content paint-card">
 
-								<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-									${Success}</h3>
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<br>
+									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+										${Success}</h3>
+								</div>
+
 							</div>
 						</div>
 					</div>
+
 					<a:remove var="Success" scope="session" />
 				</a:if>
 
-				<!-- Pop up of failure  -->
+				<!-- Popup of Error -->
 				<a:if test="${not empty Failed  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
-								<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-									${Failed}</h3>
+					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
 
-								<a:remove var="Failed" scope="session" />
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<br>
+									<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+										${Failed}</h3>
+								</div>
+
 							</div>
 						</div>
 					</div>
+					<a:remove var="Failed" scope="session" />
 				</a:if>
 
-				<%
-				int id = Integer.parseInt(request.getParameter("id"));
-				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
-				Doctor doctor = doctorDao.fetchDoctorById(id);
-				%>
-				
-				<div class="card paint-card col-md-6">
+				<div class="card paint-card">
 					<div class="card-body  text-success p-5">
-						<h4 class="text-center mb-3 text-uppercase">Update Doctor Details</h4>
-						<form action="../update-doctor" method="post" class="">
+						<h4 class="text-center mb-3 text-uppercase">Add Doctor</h4>
+						<form action="../add-doctor" method="post" class="">
 							<div class=" form-group row mb-3">
 								<label class="form-label  font-size">Full Name</label> <input
 									type="text" class="form-control " name="name"
-									placeholder="Enter Your Name" required="required" value="<%=doctor.getFull_name()%>">
+									placeholder="Enter Your Name" required="required">
 							</div>
 							<div class="form-group row mb-3">
 								<label class="form-label  font-size">DOB</label> <input
 									type="date" class="form-control " name="dob"
-									placeholder="Enter Your Date of Birth" value="<%= doctor.getDob() %>">
+									placeholder="Enter Your Date of Birth">
 							</div>
 							<div class="form-group row mb-3 ">
 								<label class="form-label  font-size">Qualification</label> <input
 									type="text" class="form-control " name="qualification"
-									placeholder="Enter Your Qualification" value="<%= doctor.getQualification() %>">
+									placeholder="Enter Your Qualification">
 							</div>
 							<div class="form-group row mb-3">
 								<label class="form-label  font-size">Specialist</label> <select
 									class="form-control " name="specialist">
-									<option><%= doctor.getSpecialist() %></option>
+									<option value="" disabled selected>--Select--</option>
 
 									<!-- Fetching all the speialist category -->
 									<%
@@ -111,27 +130,27 @@
 							<div class="form-group row mb-3">
 								<label class="form-label  font-size">Email</label> <input
 									type="email" class="form-control " name="email"
-									placeholder="Enter Your Email" required="required" value="<%= doctor.getEmail() %>">
+									placeholder="Enter Your Email" required="required">
 							</div>
 							<div class="form-group row mb-3">
 								<label class="form-label  font-size">Contact No.</label> <input
 									type="tel" class="form-control " name="contact"
-									placeholder="Enter Your Contact No." required="required" value="<%= doctor.getContact() %>">
+									placeholder="Enter Your Contact No." required="required">
 							</div>
 							<div class="form-group row mb-3">
 								<label class="form-label  font-size">Password</label> <input
 									type="password" class="form-control " name="password"
-									placeholder="Enter Your Password" required="required" value="<%= doctor.getPassword() %>">
+									placeholder="Enter Your Password" required="required">
 							</div>
 
-							<input type="hidden" name="id" value="<%= doctor.getDoc_id() %>">
-							<div class="form-group  mt-5 text-center">
+							<div class="form-group  mt-5  d-flex justify-content-center">
 								<button class="theme-btn btn-style-one  col-8">
 									<span class="btn-wrap " style="float: none; font-size: 17px">
-										<span class="text-one">Update</span> <span class="text-two">Update</span>
+										<span class="text-one">Submit</span> <span class="text-two">Submit</span>
 									</span>
 								</button>
 							</div>
+
 						</form>
 
 					</div>
@@ -142,5 +161,11 @@
 	</div>
 
 	<%@include file="component/js-file.jsp"%>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#exampleModal').modal('show');
+		});
+	</script>
 </body>
 </html>
