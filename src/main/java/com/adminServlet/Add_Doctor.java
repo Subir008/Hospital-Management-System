@@ -51,10 +51,10 @@ public class Add_Doctor extends HttpServlet
 		if (flag)
 		{
 			session.setAttribute("Success", "Dotor Added Successfully");
-			resp.sendRedirect("admin/doctor.jsp");
+			resp.sendRedirect("admin/add-doctor.jsp");
 		}else {
 			session.setAttribute("Failed", "Server Error");
-			resp.sendRedirect("admin/doctor.jsp");
+			resp.sendRedirect("admin/add-doctor.jsp");
 			
 		}	
 		

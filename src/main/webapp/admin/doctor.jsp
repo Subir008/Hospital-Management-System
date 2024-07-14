@@ -43,99 +43,8 @@
 
 	<div class="container-fluid p-3">
 		<div class="row">
-			<div class="col-md-5">
-
-				<!-- Popup of Doctor Addition -->
-				<a:if test="${not empty Success  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
-
-								<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-									${Success}</h3>
-							</div>
-						</div>
-					</div>
-					<a:remove var="Success" scope="session" />
-				</a:if>
-
-				<!-- Pop up of failure  -->
-				<a:if test="${not empty Failed  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
-								<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-									${Failed}</h3>
-
-								<a:remove var="Failed" scope="session" />
-							</div>
-						</div>
-					</div>
-				</a:if>
-
-				<div class="card paint-card">
-					<div class="card-body  text-success p-5">
-						<h4 class="text-center mb-3">Add Doctor</h4>
-						<form action="../add-doctor" method="post" class="">
-							<div class=" form-group row mb-3">
-								<label class="form-label  font-size">Full Name</label> <input
-									type="text" class="form-control " name="name"
-									placeholder="Enter Your Name" required="required">
-							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">DOB</label> <input
-									type="date" class="form-control " name="dob"
-									placeholder="Enter Your Date of Birth">
-							</div>
-							<div class="form-group row mb-3 ">
-								<label class="form-label  font-size">Qualification</label> <input
-									type="text" class="form-control " name="qualification"
-									placeholder="Enter Your Qualification">
-							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Specialist</label> <select
-									class="form-control " name="specialist">
-									<option>--Select--</option>
-
-									<!-- Fetching all the speialist category -->
-									<%
-									SpecialistDao specialistDao = new SpecialistDao(Configuration.configure());
-									List<Specialist> list = specialistDao.getSpecialist();
-
-									for (Specialist specialist : list) {
-									%>
-									<option><%=specialist.getSpecialist_name()%></option>
-									<%
-									}
-									%>
-								</select>
-							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Email</label> <input
-									type="email" class="form-control " name="email"
-									placeholder="Enter Your Email" required="required">
-							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Contact No.</label> <input
-									type="tel" class="form-control " name="contact"
-									placeholder="Enter Your Contact No." required="required">
-							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Password</label> <input
-									type="password" class="form-control " name="password"
-									placeholder="Enter Your Password" required="required">
-							</div>
-
-							<div class="form-group  mt-5 text-center">
-								<button type="submit" class="btn btn-primary ">Submit</button>
-							</div>
-						</form>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-7 table-responsive">
+			
+			<div class="col-md-12 table-responsive">
 
 				<!-- Popup of Doctor Updation -->
 				<a:if test="${not empty UpdateSuccess  }">
@@ -180,7 +89,7 @@
 				</a:if>
 
 
-				<h4 class="text-center mb-3">Doctor List</h4>
+				<h4 class="text-center mb-3 text-uppercase">Doctor Details</h4>
 				<table class="table table-hover table-bordered">
 					<thead class="text-center">
 						<tr>

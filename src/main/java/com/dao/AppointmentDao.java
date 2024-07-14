@@ -18,7 +18,7 @@ public class AppointmentDao {
 	public boolean bookAppointment(Appointment appointment) throws SQLException {
 		boolean flag = false;
 
-		String sql = "INSERT INTO appointment_master SET user_id,full_name,gender,age,email,contact,appointment_date,disease,doc_id,address VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO appointment_master (user_id,full_name,gender,age,email,contact,appointment_date,disease,doc_id,address,status) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setInt(1, appointment.getUser_id());
@@ -31,6 +31,7 @@ public class AppointmentDao {
 		ps.setString(8, appointment.getDisease());
 		ps.setInt(9, appointment.getDoc_id());
 		ps.setString(10, appointment.getAddress());
+		ps.setString(11, appointment.getStatus());
 		
 		flag = ps.execute();
 

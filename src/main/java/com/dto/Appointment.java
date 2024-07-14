@@ -20,6 +20,10 @@ public class Appointment
 	
 	
 	
+	public Appointment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Appointment(int user_id, int doc_id, String full_name, String gender, String age, String email, String contact,
 			String appointment_date, String disease, String address, String status) {
 		super();
@@ -100,6 +104,12 @@ public class Appointment
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

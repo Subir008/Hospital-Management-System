@@ -21,8 +21,9 @@ public class BookAppointment extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		int user_id = Integer.parseInt(req.getParameter("user_id"));
-		int doc_id = Integer.parseInt(req.getParameter("doc_id"));
+		// Taking the user input
+		int user_id = Integer.parseInt(req.getParameter("user_id").trim());
+		int doc_id = Integer.parseInt(req.getParameter("doc_id").trim());
 		String full_name = req.getParameter("full_name");
 		String gender = req.getParameter("gender");
 		String age = req.getParameter("age");
@@ -32,20 +33,25 @@ public class BookAppointment extends HttpServlet
 		String disease = req.getParameter("disease");
 		String address = req.getParameter("address");
 		
+		//Sending user data to the appointment table
 		Appointment appointment = new Appointment(user_id,doc_id,full_name,gender,age,email,contact,appointment_date,disease,address,"Pending");
 	
+		// Creating object of Appontmentdao class and passing the db connetion
 		AppointmentDao appointmentDao = new AppointmentDao(Configuration.configure());
 		
 		boolean flag = false;
 		
+		// Taking the data from Appontmentdao class i.e, if the operation is performed it will send true 
 		 try {
 			flag = appointmentDao.bookAppointment(appointment);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
+		 //Starting the session
 		HttpSession session = req.getSession();
 		
+		// If the data is true it will start bookingConfirmed session otherwise it will throw error 
 		if(flag)
 		{
 			session.setAttribute("bookingConfirmed", "Appointment Booked Successfully ");

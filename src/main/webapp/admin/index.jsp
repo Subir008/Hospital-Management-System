@@ -61,21 +61,31 @@
 				</div>
 				<a:remove var="FailureMessage" scope="session" />
 			</a:if>
-			
-			
 
-			<div class="col-md-4">
-				<div class="card paint-card">
-					<div class="card-body text-center text-success">
-						<i class="fas fa-user-md fa-4x"></i>
-						<p class="card-text fs-4">
-							Doctor <br> 5
-						</p>
 
+			<div class="col-md-4 mb-2 ">
+				<a href="add-doctor.jsp">
+					<div class="card paint-card pb-4">
+						<div class="card-body text-center text-success">
+							<i class="fa-solid fa-user-plus fa-4x"></i>
+							<p class="card-text fs-4 text-center">Add Doctor</p>
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 mb-2">
+				<a href="doctor.jsp">
+					<div class="card paint-card">
+						<div class="card-body text-center text-success">
+							<i class="fas fa-user-md fa-4x"></i>
+							<p class="card-text fs-4">
+								Doctor <br> 5
+							</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
@@ -85,7 +95,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+
+		</div>
+		<div class="row mt-4">
+			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-calendar-check-o fa-4x" aria-hidden="true"></i>
@@ -95,9 +108,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row mt-4">
-			<div class="col-md-4 ">
+			<div class="col-md-4 mb-2">
 				<div class="card paint-card" data-toggle="modal"
 					data-target="#exampleModal">
 					<div class="card-body text-center text-success">
