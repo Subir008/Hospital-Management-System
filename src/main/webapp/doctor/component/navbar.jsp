@@ -38,3 +38,9 @@
 </nav>
 
 <!-- End Main Header -->
+
+
+<!-- Checking Doctor session is start or not if not start then redirect user to doctor login page -->
+	<a:if test="${empty doctorObj}">
+		<a:redirect url="../doctor-login.jsp"></a:redirect>
+	</a:if>

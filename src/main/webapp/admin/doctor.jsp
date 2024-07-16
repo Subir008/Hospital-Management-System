@@ -43,7 +43,7 @@
 
 	<div class="container-fluid p-3">
 		<div class="row">
-			
+
 			<div class="col-md-12 table-responsive">
 
 				<!-- Popup of Doctor Updation -->
@@ -59,7 +59,7 @@
 					</div>
 					<a:remove var="UpdateSuccess" scope="session" />
 				</a:if>
-				
+
 				<!-- Popup of Doctor Deletion -->
 				<a:if test="${not empty DeleteSuccess  }">
 					<div class="col-md-12 mb-5">
@@ -76,7 +76,7 @@
 
 				<!-- Pop up of failure  -->
 				<a:if test="${not empty Failed  }">
-					<div class="col-md-12 mb-5" >
+					<div class="col-md-12 mb-5">
 						<div class="card paint-card">
 							<div class="card-body">
 								<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
@@ -106,7 +106,7 @@
 						<%
 						DoctorDao doctorDao = new DoctorDao(Configuration.configure());
 						List<Doctor> list1 = doctorDao.fetchDoctor();
-						
+
 						for (Doctor doctor : list1) {
 						%>
 						<tr class="text-center">
@@ -162,9 +162,10 @@
 
 
 					</tbody>
-				
+
 				</table>
-			</div>
+			
+							</div>
 		</div>
 	</div>
 

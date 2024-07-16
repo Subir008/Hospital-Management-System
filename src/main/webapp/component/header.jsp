@@ -145,7 +145,12 @@
 										<ul>
 											<li><a href="admin-login.jsp">Admin</a></li>
 											<li><a href="doctor-login.jsp">Doctor</a></li>
-										</ul></li>
+										</ul>
+									</li>
+								</a:if>
+								<a:if test="${not empty userObj }">
+									<li ><a href="appointment-list.jsp">Appointment List</a>
+									</li>
 								</a:if>
 
 							</ul>
