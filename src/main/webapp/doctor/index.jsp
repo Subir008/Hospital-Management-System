@@ -22,13 +22,34 @@
 <body>
 <%@include file="component/navbar.jsp"%>
 
-	<!-- Checking admin session is start or not if not start then redirect user to admin login page -->
-	<a:if test="${empty doctorObj}">
-		<a:redirect url="../doctor-login.jsp"></a:redirect>
-	</a:if>
 	
 	<div class="container p-3">
 		<h3 class="text-center mt-5 mb-3 ">Doctor Dashboard</h3>
+		<div class="row d-flex justify-content-center">
+		
+			<div class="col-md-5 mb-2 p-3">
+				<a href="add-doctor.jsp">
+					<div class="card paint-card pt-4 pb-4">
+						<div class="card-body text-center text-success">
+							<i class="fa-solid fa-user-plus fa-4x"></i>
+							<p class="card-text fs-4 text-center">My Account</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-5 mb-2 p-3">
+				<a href="patient-appointment-list.jsp">
+					<div class="card paint-card pt-4 pb-4">
+						<div class="card-body text-center text-success">
+							<i class="fas fa-user-md fa-4x"></i>
+							<p class="card-text fs-4">
+								Patient Appointment <br> 
+							</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
 	
 <%@include file="component/js-file.jsp"%>
