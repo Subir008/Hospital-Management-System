@@ -60,7 +60,7 @@
 						User user = (User) session.getAttribute("userObj");
 					
 						AppointmentDao appointmentDao = new AppointmentDao(Configuration.configure());
-						List<Appointment> list  = appointmentDao.fetchAllAppointment(user.getId());
+						List<Appointment> list  = appointmentDao.fetchAllAppointmentByUser(user.getId());
 					
 						for (Appointment appointment : list)
 						{

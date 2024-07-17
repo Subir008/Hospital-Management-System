@@ -12,13 +12,13 @@ import com.dto.Doctor;
 public class DoctorDao {
 	private Connection connection;
 
-	// Getting and setting the connection
+	// Method for Getting and setting the connection
 	public DoctorDao(Connection connection) {
 		super();
 		this.connection = connection;
 	}
 
-	// Adding Doctor details to the db
+	// Method for Adding Doctor details to the db
 	public boolean addDoctor(Doctor doctor) throws SQLException {
 		boolean flag = false;
 
@@ -43,7 +43,7 @@ public class DoctorDao {
 		return flag;
 	}
 
-	// Fetching all the doctor details
+	// Method for Fetching all the doctor details
 	// As multiple data is present so storing them in the form of doctor list array.
 
 	public List<Doctor> fetchDoctor() throws SQLException {
@@ -75,7 +75,7 @@ public class DoctorDao {
 		return list;
 	}
 
-	// Fetching particular doctor details based on id.
+	// Method for Fetching particular doctor details based on id.
 	// As single data is present so storing them in the form of doctor object.
 
 	public Doctor fetchDoctorById(int id) throws SQLException {
@@ -106,7 +106,7 @@ public class DoctorDao {
 		return doctor;
 	}
 
-	// Update Doctor details to the db
+	// Method for Update Doctor details to the db
 	public boolean updateDoctor(Doctor doctor) throws SQLException {
 		boolean flag = false;
 
@@ -132,7 +132,7 @@ public class DoctorDao {
 		return flag;
 	}
 
-	// Delete Doctor details in the db
+	// Method for Delete Doctor details in the db
 	public boolean deleteDoctor(int id) throws SQLException {
 		boolean flag = false;
 
@@ -151,7 +151,7 @@ public class DoctorDao {
 		return flag;
 	}
 
-	// Doctor panel Login
+	// Method for Doctor panel Login
 	public Doctor doctorLogin(String email, String password) throws SQLException
 	{
 		Doctor doctor = null ;
@@ -182,4 +182,22 @@ public class DoctorDao {
 		return doctor;
 	}
 	
+	// Method for getting number of doctor
+	public int countDoctor() throws SQLException
+	{
+		int count = 0;
+		
+		String sql = "SELECT * FROM  doctor_master ";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next())
+		{
+			count ++;
+		}
+		
+		return count;
+	}
 }

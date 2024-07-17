@@ -1,3 +1,5 @@
+<%@page import="com.configuration.Configuration"%>
+<%@page import="com.dao.DoctorDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -73,18 +75,24 @@
 					</div>
 				</a>
 			</div>
+			
+			<%
+				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
+				 int doctorCount = doctorDao.countDoctor();
+			%>
 			<div class="col-md-4 mb-2">
 				<a href="doctor.jsp">
 					<div class="card paint-card">
 						<div class="card-body text-center text-success">
 							<i class="fas fa-user-md fa-4x"></i>
 							<p class="card-text fs-4">
-								Doctor <br> 5
+								Doctor <br> <%= doctorCount %>
 							</p>
 						</div>
 					</div>
 				</a>
 			</div>
+			
 			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
 					<div class="card-body text-center text-success">
