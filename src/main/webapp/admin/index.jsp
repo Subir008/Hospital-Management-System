@@ -100,12 +100,14 @@
 		<div class="row mt-4">
 			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
+				<a href="all-appointment-list.jsp">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-calendar-check-o fa-4x" aria-hidden="true"></i>
 						<p class="card-text fs-4">
 							Total Appointment <br> 450
 						</p>
 					</div>
+				</a>
 				</div>
 			</div>
 			<div class="col-md-4 mb-2">

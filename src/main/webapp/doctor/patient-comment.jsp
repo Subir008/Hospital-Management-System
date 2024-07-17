@@ -31,9 +31,11 @@
 							Details</h4> -->
 						
 						<%
-						
+						//Fetching the appoinment id from the url
 						int appointment_id =Integer.parseInt(request.getParameter("appointment_id"));
 						AppointmentDao appointmentDao = new AppointmentDao(Configuration.configure());
+						
+						//Fetching the appoinment id based on id
 						Appointment appointment =	appointmentDao.fetchAppointmentById(appointment_id);
 						%>	
 						
@@ -78,6 +80,7 @@
 									placeholder="Add Comments Here" required></textarea>
 							</div>
 							
+							<!-- Taking appoinment and doctor id in hidden to update the data based on these id -->
 							<input type="hidden" name="appointment_id" value="<%= appointment.getAppointment_id() %>">
 							<input type="hidden" name="doc_id" value="<%= appointment.getDoc_id() %>">
 							
