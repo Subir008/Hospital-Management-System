@@ -17,6 +17,7 @@ public class Appointment
 	private int doc_id;
 	private String address;
 	private String status;
+	private String Comment;
 	
 	
 	
@@ -111,7 +112,12 @@ public class Appointment
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	public String getComment() {
+		return Comment;
+	}
+	public void setComment(String comment) {
+		Comment = comment;
+	}
 	
 	
 	
