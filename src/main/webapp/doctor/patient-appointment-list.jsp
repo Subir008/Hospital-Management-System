@@ -157,6 +157,7 @@
 
 			</div>
 		</div>
+		
 	</section>
 	<!-- End  Appointment Section -->
 

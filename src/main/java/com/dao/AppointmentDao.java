@@ -17,7 +17,7 @@ public class AppointmentDao {
 		this.connection = connection;
 	}
 
-	// Storing User Appointment Details
+	// Method for Storing User Appointment Details
 	public boolean bookAppointment(Appointment appointment) throws SQLException {
 		boolean flag = false;
 
@@ -45,42 +45,42 @@ public class AppointmentDao {
 		return flag;
 	}
 
-	// Method for getting all the appointment information
-	public List<Appointment> fetchAllAppointment(int user_id) throws SQLException 
-	{
-		List<Appointment> list = new ArrayList<Appointment>();
+	// Method for getting all the appointment information based on User
+		public List<Appointment> fetchAllAppointmentByUser(int user_id) throws SQLException 
+		{
+			List<Appointment> list = new ArrayList<Appointment>();
 
-		Appointment appointment = null;
+			Appointment appointment = null;
 
-		String sql = "SELECT * FROM appointment_master WHERE user_id = ?";
+			String sql = "SELECT * FROM appointment_master WHERE user_id = ?";
 
-		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setInt(1, user_id);
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, user_id);
 
-		ResultSet rs = ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 
-		while (rs.next()) {
-			appointment = new Appointment();
+			while (rs.next()) {
+				appointment = new Appointment();
 
-			appointment.setAppointment_id(rs.getInt(1));
-			appointment.setUser_id(rs.getInt(2));
-			appointment.setFull_name(rs.getString(3));
-			appointment.setGender(rs.getString(4));
-			appointment.setAge(rs.getString(5));
-			appointment.setEmail(rs.getString(6));
-			appointment.setContact(rs.getString(7));
-			appointment.setAppointment_date(rs.getString(8));
-			appointment.setDisease(rs.getString(9));
-			appointment.setDoc_id(rs.getInt(10));
-			appointment.setAddress(rs.getString(11));
-			appointment.setStatus(rs.getString(12));
+				appointment.setAppointment_id(rs.getInt(1));
+				appointment.setUser_id(rs.getInt(2));
+				appointment.setFull_name(rs.getString(3));
+				appointment.setGender(rs.getString(4));
+				appointment.setAge(rs.getString(5));
+				appointment.setEmail(rs.getString(6));
+				appointment.setContact(rs.getString(7));
+				appointment.setAppointment_date(rs.getString(8));
+				appointment.setDisease(rs.getString(9));
+				appointment.setDoc_id(rs.getInt(10));
+				appointment.setAddress(rs.getString(11));
+				appointment.setStatus(rs.getString(12));
 
-			list.add(appointment);
+				list.add(appointment);
 
+			}
+
+			return list;
 		}
-
-		return list;
-	}
 
 	// Method for getting appointment information based on doctor
 	public List<Appointment> fetchDoctorById(int doc_id) throws SQLException 
@@ -181,5 +181,42 @@ public class AppointmentDao {
 		return flag;
 	}
 	
-	
+	// Method for getting all the appointment information based on User
+		public List<Appointment> fetchAllAppointment() throws SQLException 
+		{
+			List<Appointment> list = new ArrayList<Appointment>();
+
+			Appointment appointment = null;
+
+			String sql = "SELECT * FROM appointment_master ORDER BY user_id DESC";
+
+			PreparedStatement ps = connection.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				appointment = new Appointment();
+
+				appointment.setAppointment_id(rs.getInt(1));
+				appointment.setUser_id(rs.getInt(2));
+				appointment.setFull_name(rs.getString(3));
+				appointment.setGender(rs.getString(4));
+				appointment.setAge(rs.getString(5));
+				appointment.setEmail(rs.getString(6));
+				appointment.setContact(rs.getString(7));
+				appointment.setAppointment_date(rs.getString(8));
+				appointment.setDisease(rs.getString(9));
+				appointment.setDoc_id(rs.getInt(10));
+				appointment.setAddress(rs.getString(11));
+				appointment.setStatus(rs.getString(12));
+				appointment.setComment(rs.getString(13));
+
+				list.add(appointment);
+
+			}
+
+			return list;
+		}
+		
+
 }
