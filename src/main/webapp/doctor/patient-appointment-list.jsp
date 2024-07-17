@@ -19,6 +19,53 @@
 
 	<%@include file="component/navbar.jsp"%>
 
+	<!-- Popup of Booking Confirm -->
+	<a:if test="${not empty CommentUpdated  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered " role="document">
+				<div class="modal-content paint-card">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-success fs-4 font-weight-bold p-3 pb-5">
+							${CommentUpdated}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<a:remove var="CommentUpdated" scope="session" />
+	</a:if>
+
+	<!-- Popup of Error -->
+	<a:if test="${not empty Error  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+							${Error}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="Error" scope="session" />
+	</a:if>
+
+
+
 	<!--  Appointment Section -->
 	<section class="contact-form-section mt-3 pb-4">
 		<div class="auto-container" style="max-width: 100%">
@@ -41,6 +88,7 @@
 									<th scope="col">Disease</th>
 									<th scope="col">Status</th>
 									<th scope="col">Comment</th>
+									<th scope="col">Add Comment</th>
 								</tr>
 							</thead>
 
@@ -74,8 +122,25 @@
 									<%
 									}
 									%>
-									<td><a class="btn btn-sm btn-info text-light"
-										href="patient-comment.jsp?appointment_id=<%= appointment.getAppointment_id()%>">Add Comment</a></td>
+									<td><%=appointment.getComment()%></td>
+									<%
+									if("Pending".equals(appointment.getStatus()))
+									{
+									%>
+									<td><a class="btn btn-sm btn-primary text-light"
+										href="patient-comment.jsp?appointment_id=<%=appointment.getAppointment_id()%>">Add
+											Comment</a></td>
+									<%
+									}else{
+									%>
+									<td><a class="btn btn-sm btn-primary text-light disabled" 
+										href="#">Add
+											Comment</a></td>
+									<%
+									}
+									%>
+									
+									
 								</tr>
 
 								<%
@@ -95,7 +160,14 @@
 	</section>
 	<!-- End  Appointment Section -->
 
+	<!-- Js File Include -->
+
 	<%@include file="component/js-file.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#exampleModal').modal('show');
+		});
+	</script>
 
 </body>
 

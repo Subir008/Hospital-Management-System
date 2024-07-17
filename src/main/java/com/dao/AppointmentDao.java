@@ -112,6 +112,7 @@ public class AppointmentDao {
 			appointment.setDoc_id(rs.getInt(10));
 			appointment.setAddress(rs.getString(11));
 			appointment.setStatus(rs.getString(12));
+			appointment.setComment(rs.getString(13));
 			
 			list.add(appointment);
 			
@@ -119,4 +120,66 @@ public class AppointmentDao {
 		
 		return list;
 	}
+	
+	
+	// Method for getting appointment information based on appointment id
+	public Appointment fetchAppointmentById(int appointment_id) throws SQLException 
+	{
+		
+		Appointment appointment = null;
+		
+		String sql = "SELECT * FROM appointment_master WHERE appointment_id = ? ";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setInt(1, appointment_id);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next())
+		{
+			appointment = new Appointment();
+			
+			appointment.setAppointment_id(rs.getInt(1));
+			appointment.setUser_id(rs.getInt(2));
+			appointment.setFull_name(rs.getString(3));
+			appointment.setGender(rs.getString(4));
+			appointment.setAge(rs.getString(5));
+			appointment.setEmail(rs.getString(6));
+			appointment.setContact(rs.getString(7));
+			appointment.setAppointment_date(rs.getString(8));
+			appointment.setDisease(rs.getString(9));
+			appointment.setDoc_id(rs.getInt(10));
+			appointment.setAddress(rs.getString(11));
+			appointment.setStatus(rs.getString(12));
+			
+			
+		}
+		
+		return appointment;
+	}
+	
+	//Method for adding comment to the patient
+	public boolean addComment(int doc_id , int appointment_id , String comment , String status) throws SQLException 
+	{
+		boolean flag = false;
+		
+		String sql = "UPDATE appointment_master SET comment = ? , status = ? WHERE doc_id =? AND appointment_id = ? ";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, comment);
+		ps.setString(2, status);
+		ps.setInt(3, doc_id);
+		ps.setInt(4	, appointment_id);
+		
+		int i = ps.executeUpdate();
+		
+		if(i == 1)
+		{
+			flag = true;
+		}
+		
+		return flag;
+	}
+	
+	
 }
