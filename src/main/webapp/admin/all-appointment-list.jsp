@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Appointments</title>
+<title>Patient Appointments List</title>
 
 <%@include file="component/css-file.jsp"%>
 
@@ -24,7 +24,7 @@
 <body>
 	<%@include file="component/navbar.jsp"%>
 	<div class="auto-container mt-4" style="max-width: 100%">
-			<h3 class="text-center">Appointment List</h3>
+			<h3 class="text-center">Patient Appointment List</h3>
 
 			<div class="row clearfix m-4 pb-5">
 				<!-- Form Column -->
@@ -32,7 +32,7 @@
 					<div class="inner-column">
 
 						<table class="table table-hover table-bordered">
-							<thead class="text-center">
+							<thead class="text-center  thead-dark">
 								<tr>
 									<th scope="col">Full Name</th>
 									<th scope="col">Gender</th>
@@ -59,7 +59,7 @@
 									Doctor doctor = doctorDao.fetchDoctorById( appointment.getDoc_id() );
 								%>
 
-								<tr class="text-center">
+								<tr class="text-center table-success">
 									<th scope="row"><%=appointment.getFull_name()%></th>
 									<td><%=appointment.getGender()%></td>
 									<td><%=appointment.getAge()%></td>
@@ -72,7 +72,7 @@
 									<%
 									if (appointment.getStatus().equals("Pending")) {
 									%>
-									<td><a class="btn btn-sm btn-warning text-light">Pending</a></td>
+									<td><a class="btn btn-sm btn-warning text-light"><i class="fa-solid fa-clock"></i> <nbsp> Pending</a></td>
 									<%
 									} else {
 									%>
@@ -99,7 +99,7 @@
 
 			</div>
 		</div>
-	
+		
 
 </body>
 </html>

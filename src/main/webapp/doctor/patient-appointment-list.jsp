@@ -77,7 +77,7 @@
 					<div class="inner-column">
 
 						<table class="table table-hover table-bordered">
-							<thead class="text-center">
+							<thead class="text-center thead-dark">
 								<tr>
 									<th scope="col">Full Name</th>
 									<th scope="col">Gender</th>
@@ -134,8 +134,8 @@
 									}else{
 									%>
 									<td><a class="btn btn-sm btn-primary text-light disabled" 
-										href="#">Add
-											Comment</a></td>
+										href="#">
+											Comment Added</a></td>
 									<%
 									}
 									%>

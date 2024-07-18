@@ -219,7 +219,7 @@
 											class="fa fa-user-circle fa-lg" aria-hidden="true"></i> <nbsp>
 											${userObj.name } </a>
 										<ul>
-											<li><a href="#">Change Password</a></li>
+											<li><a href="change-password.jsp">Change Password</a></li>
 											<li><a href="userLogout">Log Out <nbsp>
 													<nbsp> <i class="fa-solid fa-right-from-bracket"></i></a></li>
 										</ul></li>
@@ -305,7 +305,7 @@
 											class="fa fa-user-circle fa-lg" aria-hidden="true"></i> <nbsp>
 											${userObj.name } </a>
 										<ul class="userBtn">
-											<li><a href="#">Change Password</a></li>
+											<li><a href="change-password.jsp">Change Password</a></li>
 											<li><a href="userLogout">Log Out <nbsp>
 													<nbsp> <i class="fa-solid fa-right-from-bracket"></i></a></li>
 										</ul></li>
@@ -323,3 +323,7 @@
 </header>
 
 <!-- End Main Header -->
+
+	
+
+
