@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Doctor</title>
+<title>Doctor List</title>
 
 <%@include file="component/css-file.jsp"%>
 
@@ -91,7 +91,7 @@
 
 				<h4 class="text-center mb-3 text-uppercase">Doctor Details</h4>
 				<table class="table table-hover table-bordered">
-					<thead class="text-center">
+					<thead class="text-center table-primary">
 						<tr>
 							<th scope="col">Full Name</th>
 							<th scope="col">Date of Birth</th>

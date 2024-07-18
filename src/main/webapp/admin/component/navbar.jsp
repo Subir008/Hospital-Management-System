@@ -17,7 +17,7 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link active" href="doctor.jsp">Doctor</a>
 			</li>
-			<li class="nav-item"><a class="nav-link active" href="#">Patient</a></li>
+			<li class="nav-item"><a class="nav-link active" href="all-appointment-list.jsp">Patient</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<div class="dropdown">

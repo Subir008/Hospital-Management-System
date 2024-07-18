@@ -183,21 +183,23 @@ public class DoctorDao {
 	}
 	
 	// Method for getting number of doctor
-	public int countDoctor() throws SQLException
-	{
-		int count = 0;
-		
-		String sql = "SELECT * FROM  doctor_master ";
-		
-		PreparedStatement ps = connection.prepareStatement(sql);
-		
-		ResultSet rs = ps.executeQuery();
-		
-		while(rs.next())
+		public int countDoctor() throws SQLException
 		{
-			count ++;
+			int count = 0;
+			
+			String sql = "SELECT * FROM  doctor_master ";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				count ++;
+			}
+			
+			return count;
 		}
-		
-		return count;
-	}
+	
+	
 }

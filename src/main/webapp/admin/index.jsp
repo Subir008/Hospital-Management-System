@@ -1,3 +1,5 @@
+<%@page import="com.dao.UserDao"%>
+<%@page import="com.dao.AppointmentDao"%>
 <%@page import="com.configuration.Configuration"%>
 <%@page import="com.dao.DoctorDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -65,6 +67,18 @@
 			</a:if>
 
 
+			<div class="col-md-4 mb-2">
+				<div class="card paint-card pb-4" data-toggle="modal"
+					data-target="#exampleModal">
+					<div class="card-body text-center text-success">
+						<i class="fa fa-address-card fa-4x" aria-hidden="true"></i>
+						<p class="card-text fs-4">
+							Add Specialist 
+						</p>
+					</div>
+				</div>
+			</div>
+		
 			<div class="col-md-4 mb-2 ">
 				<a href="add-doctor.jsp">
 					<div class="card paint-card pb-4">
@@ -77,6 +91,7 @@
 			</div>
 			
 			<%
+			// Getting count of total number of Doctor
 				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
 				 int doctorCount = doctorDao.countDoctor();
 			%>
@@ -93,42 +108,48 @@
 				</a>
 			</div>
 			
+			
+		</div>
+		
+		
+		<div class="row mt-4">
+		
+			<%
+				// Getting count of total number of User
+				UserDao userDao = new UserDao(Configuration.configure());
+				int userCount = userDao.countAllUser();
+			%>
 			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
+				<a href="user.jsp">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
 						<p class="card-text fs-4">
-							User <br> 50
+							User <br> <%= userCount %>
 						</p>
 					</div>
+				</a>
 				</div>
 			</div>
-
-		</div>
-		<div class="row mt-4">
+		
+			<%
+			// Getting count of total number of Appointment
+				AppointmentDao appointmentDao = new AppointmentDao(Configuration.configure());
+				int appoinmentCount = appointmentDao.countAllAppointment();
+			%>
 			<div class="col-md-4 mb-2">
 				<div class="card paint-card">
 				<a href="all-appointment-list.jsp">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-calendar-check-o fa-4x" aria-hidden="true"></i>
 						<p class="card-text fs-4">
-							Total Appointment <br> 450
+							Total Appointment <br> <%= appoinmentCount %>
 						</p>
 					</div>
 				</a>
 				</div>
 			</div>
-			<div class="col-md-4 mb-2">
-				<div class="card paint-card" data-toggle="modal"
-					data-target="#exampleModal">
-					<div class="card-body text-center text-success">
-						<i class="fa fa-address-card fa-4x" aria-hidden="true"></i>
-						<p class="card-text fs-4">
-							Specialist <br> 50
-						</p>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 
 	</div>
@@ -138,7 +159,7 @@
 	<!-- Specialist Add Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Add Specialist

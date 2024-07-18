@@ -217,6 +217,25 @@ public class AppointmentDao {
 
 			return list;
 		}
+
+		// Method for getting number of doctor
+		public int countAllAppointment() throws SQLException
 		
+		{
+			int count = 0;
+			
+			String sql = "SELECT * FROM  appointment_master ";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				count ++;
+			}
+			
+			return count;
+		}
 
 }
