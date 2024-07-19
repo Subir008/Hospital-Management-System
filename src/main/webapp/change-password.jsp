@@ -35,6 +35,95 @@ font-weight: bold;
 			<a:redirect url="user-login.jsp"></a:redirect>
 		</a:if>
 
+		<!-- Model of Password Update -->
+	<a:if test="${not empty PasswordUpdate  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered " role="document">
+				<div class="modal-content paint-card">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+							${PasswordUpdate}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<a:remove var="PasswordUpdate" scope="session" />
+	</a:if>
+
+	<!-- Model of Error -->
+	<a:if test="${not empty Error  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+							${Error}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="Error" scope="session" />
+	</a:if>		
+
+	<!-- Model of Password Not Match -->
+	<a:if test="${not empty PasswordNotMatch  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+							${PasswordNotMatch}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="PasswordNotMatch" scope="session" />
+	</a:if>
+		
+	<!-- Model of Password Wrong -->
+	<a:if test="${not empty PasswordWrong  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
+							${PasswordWrong}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="PasswordWrong" scope="session" />
+	</a:if>
+		
 	
 		<div class="row clearfix m-5 pb-5">
 				<!-- Form Column -->
@@ -53,7 +142,7 @@ font-weight: bold;
 
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 										<label class="font-weight-bold"> Current Password</label> 
-										<input type="text" name="current_password"
+										<input type="text" name="old_password"
 											placeholder="" required="">
 									</div>
 
@@ -101,8 +190,14 @@ font-weight: bold;
 	<!-- End PageWrapper -->
 
 
-	<%@include file="component/js-file.jsp"%>
+	<!-- Js File Include -->
 
+	<%@include file="component/js-file.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#exampleModal').modal('show');
+		});
+	</script>
 
 </body>
 </html>
