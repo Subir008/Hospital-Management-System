@@ -15,16 +15,18 @@
 			<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link active" href="doctor.jsp">Doctor</a>
-			</li>
-			<li class="nav-item"><a class="nav-link active" href="all-appointment-list.jsp">Patient</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href="doctor.jsp">Doctor</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href="all-appointment-list.jsp">Patient</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<div class="dropdown">
 				<button class="btn btn-light dropdown-toggle" type="button"
 					data-toggle="dropdown" aria-expanded="false">Admin</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="../logout">Log Out <nbsp><nbsp> <i class="fa-solid fa-right-from-bracket"></i></a> 
+					<a class="dropdown-item" href="../logout">Log Out <nbsp>
+						<nbsp> <i class="fa-solid fa-right-from-bracket"></i></a>
 				</div>
 			</div>
 		</form>
@@ -32,3 +34,8 @@
 </nav>
 
 <!-- End Main Header -->
+
+<!-- Checking admin session is start or not if not start then redirect user to admin login page -->
+<a:if test="${empty adminObj}">
+	<a:redirect url="../admin-login.jsp"></a:redirect>
+</a:if>

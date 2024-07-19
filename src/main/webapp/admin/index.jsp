@@ -27,12 +27,6 @@
 
 	<%@include file="component/navbar.jsp"%>
 
-	<!-- Checking admin session is start or not if not start then redirect user to admin login page -->
-	<a:if test="${empty adminObj}">
-		<a:redirect url="../admin-login.jsp"></a:redirect>
-	</a:if>
-
-
 
 	<div class="container p-3">
 		<h3 class="text-center mt-5 mb-3 ">Admin Dashboard</h3>
