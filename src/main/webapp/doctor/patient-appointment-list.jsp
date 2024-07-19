@@ -13,6 +13,17 @@
 <title>Appointment List</title>
 
 <%@include file="component/css-file.jsp"%>
+<style type="text/css">
+
+.paint-card{
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+label{
+font-size: 19px;
+font-weight: bold;
+}
+</style>
+
 </head>
 
 <body>
@@ -69,7 +80,7 @@
 	<!--  Appointment Section -->
 	<section class="contact-form-section mt-3 pb-4">
 		<div class="auto-container" style="max-width: 100%">
-			<h3 class="text-center">Appointment List</h3>
+			<h3 class="text-center text-uppercase">Patient Appointment List</h3>
 
 			<div class="row clearfix m-4 pb-5">
 				<!-- Form Column -->

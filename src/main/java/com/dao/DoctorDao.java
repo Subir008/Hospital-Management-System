@@ -144,7 +144,7 @@ public class DoctorDao {
 
 		int i = ps.executeUpdate();
 
-		while (i == 1) {
+		if (i == 1) {
 			flag = true;
 		}
 
@@ -201,5 +201,50 @@ public class DoctorDao {
 			return count;
 		}
 	
-	
+
+		// Method for checking Old Password
+		public boolean checkPassword(int id, String old_password) throws SQLException
+		{
+			boolean flag = false;
+			
+			String sql = "SELECT * FROM doctor_master WHERE doc_id = ? AND password = ?";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			ps.setString(2, old_password);
+			
+			ResultSet rs =  ps.executeQuery();
+			
+			while(rs.next())
+			{
+				flag = true;
+			}
+			
+			return flag;
+		} 
+		
+		// Method for update Old Password
+		public boolean updatePassword(int id, String new_password) throws SQLException
+		{
+			boolean flag = false;
+			
+			String sql = "UPDATE doctor_master SET password = ? WHERE doc_id = ?";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ps.setString(1, new_password );
+			ps.setInt(2, id);
+			
+			int i = ps.executeUpdate();
+			
+			if(i == 1)
+			{
+				flag = true;
+			}
+			
+			return flag;
+		}
+
+		
 }

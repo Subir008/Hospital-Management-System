@@ -48,45 +48,73 @@
 
 				<!-- Popup of Doctor Updation -->
 				<a:if test="${not empty UpdateSuccess  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
+					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-dialog-centered " role="document">
+							<div class="modal-content paint-card">
 
-								<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-									${UpdateSuccess}</h3>
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<br>
+									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+										${UpdateSuccess}</h3>
+								</div>
+
 							</div>
 						</div>
 					</div>
+
 					<a:remove var="UpdateSuccess" scope="session" />
 				</a:if>
 
 				<!-- Popup of Doctor Deletion -->
 				<a:if test="${not empty DeleteSuccess  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
+					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-dialog-centered " role="document">
+							<div class="modal-content paint-card">
 
-								<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-									${DeleteSuccess}</h3>
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<br>
+									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+										${DeleteSuccess}</h3>
+								</div>
+
 							</div>
 						</div>
 					</div>
+
 					<a:remove var="DeleteSuccess" scope="session" />
 				</a:if>
 
-				<!-- Pop up of failure  -->
+				<!-- Pop up of Error  -->
 				<a:if test="${not empty Failed  }">
-					<div class="col-md-12 mb-5">
-						<div class="card paint-card">
-							<div class="card-body">
-								<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-									${Failed}</h3>
+					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-dialog-centered " role="document">
+							<div class="modal-content paint-card">
 
-								<a:remove var="Failed" scope="session" />
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<br>
+									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+										${Failed}</h3>
+								</div>
+
 							</div>
 						</div>
 					</div>
+
+					<a:remove var="Failed" scope="session" />
 				</a:if>
+
 
 
 				<h4 class="text-center mb-3 text-uppercase">Doctor Details</h4>
@@ -126,7 +154,7 @@
 													class="text-success nav-icon fas fa-pen"></i><span
 													class="nav-text">Edit Details</span></a></li>
 											<li class="nav-item list"><a class="nav-link list-item"
-												href="../delete-doctor-details?id=<%=doctor.getDoc_id()%> "><i
+												data-toggle="modal" data-target="#exampleModalCenter"><i
 													class="text-danger nav-icon fas fa-trash"></i><span
 													class="nav-text">Delete Details</span></a></li>
 										</ul>
@@ -136,7 +164,7 @@
 
 
 						<!-- Modal -->
-						<%-- <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1"
 							role="dialog" aria-labelledby="exampleModalCenterTitle"
 							aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
@@ -147,14 +175,14 @@
 									</div>
 									<div class="modal-body text-center">
 										<a class="btn btn-primary" role="button"
-											>Yes</a>
+											href="../delete-doctor-details?id=<%=doctor.getDoc_id()%> ">Yes</a>
 										<button type="button" class="btn btn-danger"
 											data-dismiss="modal">No</button>
 									</div>
 
 								</div>
 							</div>
-						</div> --%>
+						</div>
 
 						<%
 						}
@@ -164,11 +192,18 @@
 					</tbody>
 
 				</table>
-			
-							</div>
+
+			</div>
 		</div>
 	</div>
 
 	<%@include file="component/js-file.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#exampleModal').modal('show');
+		});
+	</script>
+
+
 </body>
 </html>

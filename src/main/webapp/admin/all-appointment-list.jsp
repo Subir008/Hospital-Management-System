@@ -6,6 +6,10 @@
 <%@page import="com.dao.AppointmentDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +27,9 @@
 </head>
 <body>
 	<%@include file="component/navbar.jsp"%>
+	
 	<div class="auto-container mt-4" style="max-width: 100%">
-			<h3 class="text-center">Patient Appointment List</h3>
+			<h3 class="text-center text-uppercase">Patient Appointment List</h3>
 
 			<div class="row clearfix m-4 pb-5">
 				<!-- Form Column -->
@@ -100,6 +105,7 @@
 			</div>
 		</div>
 		
+	<%@include file="component/js-file.jsp"%>
 
 </body>
 </html>

@@ -1,3 +1,6 @@
+<%@page import="com.dto.Doctor"%>
+<%@page import="com.configuration.Configuration"%>
+<%@page import="com.dao.AppointmentDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -29,7 +32,7 @@
 		
 			<div class="col-md-5 mb-2 p-3">
 				<a href="add-doctor.jsp">
-					<div class="card paint-card pt-4 pb-4">
+					<div class="card paint-card pt-4 pb-5">
 						<div class="card-body text-center text-success">
 							<i class="fa-solid fa-user-plus fa-4x"></i>
 							<p class="card-text fs-4 text-center">My Account</p>
@@ -37,13 +40,19 @@
 					</div>
 				</a>
 			</div>
+			
+			<%
+				Doctor doctor = (Doctor) session.getAttribute("doctorObj");
+				AppointmentDao appointmentDao = new AppointmentDao(Configuration.configure());
+				int appointmentCount = appointmentDao.countAppointmentByDoctor(doctor.getDoc_id());
+			%>
 			<div class="col-md-5 mb-2 p-3">
 				<a href="patient-appointment-list.jsp">
 					<div class="card paint-card pt-4 pb-4">
 						<div class="card-body text-center text-success">
 							<i class="fas fa-user-md fa-4x"></i>
 							<p class="card-text fs-4">
-								Patient Appointment <br> 
+								Patient Appointment <br> <%= appointmentCount %>
 							</p>
 						</div>
 					</div>

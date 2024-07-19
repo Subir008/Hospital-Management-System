@@ -218,7 +218,7 @@ public class AppointmentDao {
 			return list;
 		}
 
-		// Method for getting number of doctor
+		// Method for getting total number of appointment
 		public int countAllAppointment() throws SQLException
 		
 		{
@@ -227,6 +227,27 @@ public class AppointmentDao {
 			String sql = "SELECT * FROM  appointment_master ";
 			
 			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				count ++;
+			}
+			
+			return count;
+		}
+		
+		// Method for getting number of appointments based on Doctor
+		public int countAppointmentByDoctor(int doc_id) throws SQLException
+		
+		{
+			int count = 0;
+			
+			String sql = "SELECT * FROM  appointment_master WHERE doc_id = ?";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, doc_id);			
 			
 			ResultSet rs = ps.executeQuery();
 			

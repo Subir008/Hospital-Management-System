@@ -35,6 +35,7 @@
 
 	<div class="container-fluid p-3">
 		<div class="row">
+		
 			<div class="col-md-12 d-flex justify-content-center">
 
 				<!-- Popup of Doctor Addition -->
@@ -137,7 +138,7 @@
 					</div>
 				</div>
 			</div>
-
+		
 		</div>
 	</div>
 

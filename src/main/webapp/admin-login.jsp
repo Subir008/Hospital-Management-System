@@ -195,6 +195,7 @@ svg {
 														</span>
 													</button>
 												</div>
+												<a href="index.jsp">Back To Home</a>
 											</form>
 										</div>
 									</div>

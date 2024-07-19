@@ -56,7 +56,7 @@ top: 90px;
 
 		<a:remove var="bookingConfirmed" scope="session" />
 	</a:if>
-
+	
 	<!-- Popup of Error -->
 	<a:if test="${not empty Error  }">
 		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
