@@ -6,7 +6,7 @@
 <%@page import="com.dto.Doctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 
 <!DOCTYPE html>
 <html>
@@ -24,10 +24,10 @@ label {
 	font-size: 19px;
 	font-weight: bold;
 }
-input{
-font-size: 20px;
-}
 
+input {
+	font-size: 20px;
+}
 </style>
 
 
@@ -79,7 +79,7 @@ font-size: 20px;
 			</div>
 		</div>
 		<a:remove var="Error" scope="session" />
-	</a:if>		
+	</a:if>
 
 	<!-- Model of Password Not Match -->
 	<a:if test="${not empty PasswordNotMatch  }">
@@ -102,7 +102,7 @@ font-size: 20px;
 		</div>
 		<a:remove var="PasswordNotMatch" scope="session" />
 	</a:if>
-		
+
 	<!-- Model of Password Wrong -->
 	<a:if test="${not empty PasswordWrong  }">
 		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
@@ -124,7 +124,29 @@ font-size: 20px;
 		</div>
 		<a:remove var="PasswordWrong" scope="session" />
 	</a:if>
-		
+
+	<!-- Model of Password Wrong -->
+	<a:if test="${not empty UpdateSuccess  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-success fs-4 font-weight-bold p-3">
+							${UpdateSuccess}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="UpdateSuccess" scope="session" />
+	</a:if>
+
 
 	<div class="row clearfix m-5 pb-5">
 		<!-- Form Column -->
@@ -137,7 +159,8 @@ font-size: 20px;
 
 						<!-- Comment Form -->
 						<div class="default-form contact-form">
-							<form method="post" action="../update-doctor-password" id="contact-form">
+							<form method="post" action="../update-doctor-password"
+								id="contact-form">
 								<div class="row clearfix">
 
 									<input type="hidden" name="doc_id" value=" ${doctorObj.doc_id}">
@@ -163,8 +186,8 @@ font-size: 20px;
 
 										<button
 											class="theme-btn btn-style-one d-flex justify-content-center col-12">
-											<span class="btn-wrap"> <span class="text-one">Update Password
-											</span> <span class="text-two">Update Password</span>
+											<span class="btn-wrap"> <span class="text-one">Update
+													Password </span> <span class="text-two">Update Password</span>
 											</span>
 										</button>
 
@@ -180,36 +203,8 @@ font-size: 20px;
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-md-8 d-flex justify-content-end">
-
-			<!-- Popup of Doctor Addition -->
-			<a:if test="${not empty Success  }">
-				<div class="col-md-12 mb-5">
-					<div class="card paint-card">
-						<div class="card-body">
-
-							<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-								${Success}</h3>
-						</div>
-					</div>
-				</div>
-				<a:remove var="Success" scope="session" />
-			</a:if>
-
-			<!-- Pop up of failure  -->
-			<a:if test="${not empty Failed  }">
-				<div class="col-md-12 mb-5">
-					<div class="card paint-card">
-						<div class="card-body">
-							<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-								${Failed}</h3>
-
-							<a:remove var="Failed" scope="session" />
-						</div>
-					</div>
-				</div>
-			</a:if>
 
 			<%
 			Doctor doctor = (Doctor) session.getAttribute("doctorObj");
@@ -258,6 +253,12 @@ font-size: 20px;
 								%>
 							</select>
 						</div>
+						<div class="form-group row mb-3 ">
+							<label class="form-label  font-size">Experience</label> <input
+								type="number" class="form-control " name="experience"
+								placeholder="Enter Your Experience Year"
+								value="<%=doctor.getExperience()%>">
+						</div>
 						<div class="form-group row mb-3">
 							<label class="form-label  font-size">Email</label> <input
 								type="email" class="form-control " name="email"
@@ -267,16 +268,29 @@ font-size: 20px;
 						<div class="form-group row mb-3">
 							<label class="form-label  font-size">Contact No.</label> <input
 								type="tel" class="form-control " name="contact"
-								placeholder="Enter Your Contact No." required="required" readonly
-								value="<%=doctor.getContact()%>">
+								placeholder="Enter Your Contact No." required="required"
+								readonly value="<%=doctor.getContact()%>">
 						</div>
-						
+
+						<div class="form-group row mb-3 ">
+							<label class="form-label  font-size">Address</label>
+							<textarea  class="form-control " name="address"
+								placeholder="Enter Your Address"
+								><%=doctor.getAddress()%></textarea>
+						</div>
+						<div class="form-group row mb-3 ">
+							<label class="form-label  font-size">Bio</label>
+							<textarea class="form-control " name="bio"
+								placeholder="Enter Your Bio" rows="3" 
+								><%=doctor.getBio()%></textarea>
+						</div>
 
 						<input type="hidden" name="doc_id" value="<%=doctor.getDoc_id()%>">
 						<div class="form-group  mt-5 text-center">
 							<button class="theme-btn btn-style-one  col-8">
 								<span class="btn-wrap " style="float: none; font-size: 17px">
-									<span class="text-one">Update Details</span> <span class="text-two">Update Details</span>
+									<span class="text-one">Update Details</span> <span
+									class="text-two">Update Details</span>
 								</span>
 							</button>
 						</div>

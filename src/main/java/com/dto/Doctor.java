@@ -10,6 +10,9 @@ public class Doctor
 	private String email;
 	private String contact;
 	private String password;
+	private String bio;
+	private String address;
+	private String experience;
 	
 	
 	public Doctor() 
@@ -43,6 +46,22 @@ public class Doctor
 		this.email = email;
 		this.contact = contact;
 		this.password = password;
+	}
+
+	// It is used in Profile Update page in Doctor admin Panel
+	public Doctor(int doc_id,String full_name, String dob, String qualification, String specialist, String email, String contact,
+			String bio, String address, String experience) {
+		super();
+		this.doc_id = doc_id;
+		this.full_name = full_name;
+		this.dob = dob;
+		this.qualification = qualification;
+		this.specialist = specialist;
+		this.email = email;
+		this.contact = contact;
+		this.bio = bio;
+		this.address = address;
+		this.experience = experience;
 	}
 
 
@@ -123,6 +142,36 @@ public class Doctor
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public String getBio() {
+		return bio;
+	}
+
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+	public String getExperience() {
+		return experience;
+	}
+
+
+	public void setExperience(String experience) {
+		this.experience = experience;
 	}
 	
 	
