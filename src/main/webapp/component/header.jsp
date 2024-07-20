@@ -219,6 +219,7 @@
 											class="fa fa-user-circle fa-lg" aria-hidden="true"></i> <nbsp>
 											${userObj.name } </a>
 										<ul>
+											<li><a href="user-profile.jsp">Profile</a></li>
 											<li><a href="change-password.jsp">Change Password</a></li>
 											<li><a href="userLogout">Log Out <nbsp>
 													<nbsp> <i class="fa-solid fa-right-from-bracket"></i></a></li>
