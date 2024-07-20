@@ -31,7 +31,7 @@
 		<div class="row d-flex justify-content-center">
 		
 			<div class="col-md-5 mb-2 p-3">
-				<a href="add-doctor.jsp">
+				<a href="doctor-profile.jsp">
 					<div class="card paint-card pt-4 pb-5">
 						<div class="card-body text-center text-success">
 							<i class="fa-solid fa-user-plus fa-4x"></i>

@@ -57,7 +57,7 @@ public class Update_Password extends HttpServlet
 					resp.sendRedirect("doctor/update-doctor-details.jsp");
 				}else
 				{
-					session.setAttribute("Error", "Something Wrong On Server");
+					session.setAttribute("Error", "Something Wrong On Server Couldn't Update" );
 					resp.sendRedirect("doctor/update-doctor-details.jsp");
 				}
 				

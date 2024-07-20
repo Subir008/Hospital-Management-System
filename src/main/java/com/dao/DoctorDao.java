@@ -100,6 +100,9 @@ public class DoctorDao {
 			doctor.setEmail(rs.getString(6));
 			doctor.setContact(rs.getString(7));
 			doctor.setPassword(rs.getString(8));
+			doctor.setBio(rs.getString(9));
+			doctor.setAddress(rs.getString(10));
+			doctor.setExperience(rs.getString(11));
 
 		}
 
@@ -129,6 +132,34 @@ public class DoctorDao {
 			flag = true;
 		}
 
+		return flag;
+	}
+	
+	// Method for Update Doctor Profile to the db
+	public boolean updateProfile(Doctor doctor) throws SQLException {
+		boolean flag = false;
+		
+		String sql = "UPDATE doctor_master SET full_name = ? ,dob = ?, qualification = ?, specialist = ?, email = ?, contact = ?, bio = ?, address= ?, experience= ? WHERE doc_id = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setString(1, doctor.getFull_name());
+		ps.setString(2, doctor.getDob());
+		ps.setString(3, doctor.getQualification());
+		ps.setString(4, doctor.getSpecialist());
+		ps.setString(5, doctor.getEmail());
+		ps.setString(6, doctor.getContact());
+		ps.setString(7, doctor.getBio());
+		ps.setString(8, doctor.getAddress());
+		ps.setString(9, doctor.getExperience());
+		ps.setInt(10, doctor.getDoc_id());
+		
+		int i = ps.executeUpdate();
+		
+		if (i == 1) {
+			flag = true;
+		}
+		
 		return flag;
 	}
 
@@ -183,7 +214,7 @@ public class DoctorDao {
 	}
 	
 	// Method for getting number of doctor
-		public int countDoctor() throws SQLException
+	public int countDoctor() throws SQLException
 		{
 			int count = 0;
 			
@@ -202,30 +233,30 @@ public class DoctorDao {
 		}
 	
 
-		// Method for checking Old Password
-		public boolean checkPassword(int id, String old_password) throws SQLException
-		{
-			boolean flag = false;
-			
-			String sql = "SELECT * FROM doctor_master WHERE doc_id = ? AND password = ?";
-			
-			PreparedStatement ps = connection.prepareStatement(sql);
-			
-			ps.setInt(1, id);
-			ps.setString(2, old_password);
-			
-			ResultSet rs =  ps.executeQuery();
-			
-			while(rs.next())
-			{
-				flag = true;
-			}
-			
-			return flag;
-		} 
+	// Method for checking Old Password
+	public boolean checkPassword(int id, String old_password) throws SQLException
+	{
+		boolean flag = false;
 		
-		// Method for update Old Password
-		public boolean updatePassword(int id, String new_password) throws SQLException
+		String sql = "SELECT * FROM doctor_master WHERE doc_id = ? AND password = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setInt(1, id);
+		ps.setString(2, old_password);
+		
+		ResultSet rs =  ps.executeQuery();
+		
+		while(rs.next())
+		{
+			flag = true;
+		}
+		
+		return flag;
+	} 
+	
+	// Method for update Old Password
+	public boolean updatePassword(int id, String new_password) throws SQLException
 		{
 			boolean flag = false;
 			
