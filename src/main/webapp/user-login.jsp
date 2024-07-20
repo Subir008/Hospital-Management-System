@@ -26,7 +26,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
 		<!-- Header Added -->
 		<%@include file="component/header.jsp"%>
-
+		
 		<!-- Page Title -->
 		<section class="page-title"
 			style="background-image: url(assets/images/background/3.jpg)">

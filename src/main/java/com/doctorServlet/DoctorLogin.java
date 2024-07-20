@@ -37,7 +37,7 @@ public class DoctorLogin extends HttpServlet
 				session.setAttribute("doctorObj", doctor);
 				resp.sendRedirect("doctor/index.jsp");
 			} else {
-				session.setAttribute("Incorrect", "Error");
+				session.setAttribute("Incorrect", "Incorrect Login Credentials");
 				resp.sendRedirect("doctor-login.jsp");
 			}
 

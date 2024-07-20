@@ -25,6 +25,51 @@
 		<!-- Header Added -->
 		<%@include file="component/header.jsp"%>
 
+		
+	<!-- Model of Error -->
+	<a:if test="${not empty Incorrect  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-danger fs-4 font-weight-bold p-3 pb-5">
+							${Incorrect}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="Incorrect" scope="session" />
+	</a:if>
+		
+	<!-- Model of logout message -->
+	<a:if test="${not empty logoutmessage  }">
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<br>
+						<h3 class="text-center text-success fs-4 font-weight-bold p-3 pb-5">
+							${logoutmessage}</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a:remove var="logoutmessage" scope="session" />
+	</a:if>
+		
 
 		<!-- Page Title -->
 		<section class="page-title"
@@ -45,19 +90,8 @@
 				<div class="inner-container">
 					<div class="row clearfix">
 
-						<!-- Pop up of logout message -->
-						<a:if test="${not empty logoutmessage  }">
-							<div class="col-md-12 mb-5">
-								<div class="card paint-card">
-									<div class="card-body">
-										<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-											${logoutmessage}</h3>
-
-										<a:remove var="logoutmessage" scope="session" />
-									</div>
-								</div>
-							</div>
-						</a:if>
+						
+						
 
 						<div class="col-md-9 offset-md-2 mb-4">
 							<div class="card paint-card">
@@ -130,7 +164,11 @@
 
 		<!-- Js File Link -->
 		<%@include file="component/js-file.jsp"%>
-
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#exampleModal').modal('show');
+			});
+		</script>
 	</div>
 
 

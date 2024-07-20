@@ -121,7 +121,29 @@ public class UserDao {
 		return list;
 	}
 
-
+	// Method for getting User By id
+	public User fetchUserById(int id) throws SQLException	
+	{
+		User user = null;
+		
+		String sql = "SELECT * FROM user_master WHERE user_id = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setInt(1, id);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next())
+		{
+			user = new User();
+			user.setId(rs.getInt(1));
+			user.setName(rs.getString(2));
+			user.setEmail(rs.getString(3));
+			user.setPassword(rs.getString(4));
+		}
+		return user;
+	}
+	
 	// Method for checking Old Password
 	public boolean checkPassword(int id, String old_password) throws SQLException
 	{
@@ -166,4 +188,16 @@ public class UserDao {
 		return flag;
 	}
 
+	// Method for Update Profile
+	public boolean updateUserProfile(User user) throws SQLException
+	{
+		boolean flag = false;
+		
+		String sql = "UPDATE user_master set name = ?, email = ?, contact = ? ,address = ? , gender = ? WHERE user_id = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, user.getName());
+		return flag;
+	}
+	
 }

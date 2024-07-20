@@ -168,7 +168,7 @@
 						<div class="form-group">
 							<label for="name"><strong>Specialist Name</strong></label> <input
 								type="text" class="form-control" name="specialist_name"
-								id="specialist_name" aria-describedby="emailHelp">
+								id="specialist_name" aria-describedby="emailHelp" autocomplete=off>
 						</div>
 						<div class="form-group text-center">
 							<button type="submit" class="btn btn-primary ">Add</button>
