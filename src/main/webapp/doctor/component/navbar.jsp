@@ -28,8 +28,8 @@
 											class="fa fa-user-circle fa-lg" aria-hidden="true"></i> <nbsp>
 											${doctorObj.full_name}</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="update-doctor-details.jsp">Edit <nbsp><nbsp> <i class="fa-solid fa-right-from-bracket"></i></a> 
-					<a class="dropdown-item" href="../doctor-logout">Log Out <nbsp><nbsp> <i class="fa-solid fa-right-from-bracket"></i></a> 
+					<a class="dropdown-item d-flex justify-content-around" href="update-doctor-details.jsp">Edit  <i class="fa-solid fa-user-pen"></i></a> 
+					<a class="dropdown-item d-flex justify-content-around" href="../doctor-logout">Log Out <i class="fa-solid fa-right-from-bracket"></i></a> 
 				</div>
 			</div>
 		</form>

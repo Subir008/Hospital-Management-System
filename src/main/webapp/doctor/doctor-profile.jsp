@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Doctor Profile</title>
 
 <%@include file="component/css-file.jsp"%>
 </head>
@@ -27,10 +27,10 @@
 		<%@include file="component/navbar.jsp"%>
 
 	<%
-		Doctor doctor = (Doctor) session.getAttribute("doctorObj") ;
-		DoctorDao doctorDao = new DoctorDao(Configuration.configure());
-		doctor = doctorDao.fetchDoctorById(doctor.getDoc_id());
-		
+	Doctor doctor = (Doctor) session.getAttribute("doctorObj") ;
+	DoctorDao doctorDao = new DoctorDao(Configuration.configure());
+	doctor = doctorDao.fetchDoctorById(doctor.getDoc_id());
+	
 	%>
 
 
@@ -56,7 +56,7 @@
 					<div class="image-column col-lg-5 col-md-12 col-sm-12">
 						<div class="inner-column">
 							<div class="image">
-								<img src="../assets/images/resource/doctor-2.jpg" alt="" />
+								<img src="../upload_content/<%= doctor.getProfile_img() %>" height="500px" width="400px" alt="" />
 								<div class="number-box">
 									<!-- 								<a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="play-button" data-fancybox="" data-caption=""><i class="ripple"></i><i class="icon fa-solid fa-play fa-fw"></i></a> -->
 								<%= doctor.getContact() %>

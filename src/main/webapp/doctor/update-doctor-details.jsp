@@ -28,6 +28,9 @@ label {
 input {
 	font-size: 20px;
 }
+textarea {
+	color:black !important;
+}
 </style>
 
 
@@ -216,7 +219,9 @@ input {
 				<div class="card-body contact-form default-form text-success p-5">
 					<h3 class="text-center mb-3 pb-4 text-uppercase text-primary">Update
 						Doctor Details</h3>
-					<form action="../update-profile-details" method="post" class="">
+						
+						<!-- To take image or file from the user enctype is used -->
+					<form action="../update-profile-details" method="post" class="" enctype="multipart/form-data">
 						<div class=" form-group row mb-3">
 							<label class="form-label  font-size">Full Name</label> <input
 								type="text" class="form-control " name="name"
@@ -275,7 +280,7 @@ input {
 						<div class="form-group row mb-3 ">
 							<label class="form-label  font-size">Address</label>
 							<textarea  class="form-control " name="address"
-								placeholder="Enter Your Address"
+								placeholder="Enter Your Address" 
 								><%=doctor.getAddress()%></textarea>
 						</div>
 						<div class="form-group row mb-3 ">
@@ -283,6 +288,10 @@ input {
 							<textarea class="form-control " name="bio"
 								placeholder="Enter Your Bio" rows="3" 
 								><%=doctor.getBio()%></textarea>
+						</div>
+						<div class="form-group row mb-3 ">
+							<label class="form-label  font-size">Profile Image</label>
+							<input type="file" class="form-control " name="profile_img" >
 						</div>
 
 						<input type="hidden" name="doc_id" value="<%=doctor.getDoc_id()%>">

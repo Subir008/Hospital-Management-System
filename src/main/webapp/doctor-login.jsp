@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +19,8 @@
 </head>
 <body>
 
-	<div class="page-wrapper">
-
-		<!-- Preloader -->
-		<!--  <div class="preloader"></div> -->
-		<!-- End Preloader -->
 
 
-		<!-- Header Added -->
-		<%@include file="component/header.jsp"%>
-
-		
 	<!-- Model of Error -->
 	<a:if test="${not empty Incorrect  }">
 		<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
@@ -69,7 +64,19 @@
 		</div>
 		<a:remove var="logoutmessage" scope="session" />
 	</a:if>
+	
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		<!--  <div class="preloader"></div> -->
+		<!-- End Preloader -->
+
+
+		<!-- Header Added -->
+		<%@include file="component/header.jsp"%>
+
 		
+	
 
 		<!-- Page Title -->
 		<section class="page-title"

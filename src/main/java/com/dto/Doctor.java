@@ -13,6 +13,7 @@ public class Doctor
 	private String bio;
 	private String address;
 	private String experience;
+	private String profile_img;
 	
 	
 	public Doctor() 
@@ -50,7 +51,7 @@ public class Doctor
 
 	// It is used in Profile Update page in Doctor admin Panel
 	public Doctor(int doc_id,String full_name, String dob, String qualification, String specialist, String email, String contact,
-			String bio, String address, String experience) {
+			String bio, String address, String experience, String profile_img ) {
 		super();
 		this.doc_id = doc_id;
 		this.full_name = full_name;
@@ -62,6 +63,7 @@ public class Doctor
 		this.bio = bio;
 		this.address = address;
 		this.experience = experience;
+		this.profile_img = profile_img;
 	}
 
 
@@ -174,7 +176,15 @@ public class Doctor
 		this.experience = experience;
 	}
 	
+	public String getProfile_img()
+	{
+		return profile_img;
+	}
 	
+	public void setProfile_img(String profile_img) 
+	{
+		this.profile_img = profile_img;	
+	}
 	
 	
 	
