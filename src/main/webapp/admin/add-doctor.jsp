@@ -42,8 +42,8 @@
 	<%@include file="component/navbar.jsp"%>
 
 	<div class="container-fluid p-3">
-		<div class="row">
-			<div class="col-md-7 offset-3">
+		<div class="row clearfix ">
+			<div class="col-md-12 d-flex justify-content-center">
 
 				<!-- Popup of Doctor Addition-->
 				<a:if test="${not empty Success  }">
@@ -90,7 +90,7 @@
 					<a:remove var="Failed" scope="session" />
 				</a:if>
 
-				<div class="card paint-card">
+				<div class="card paint-card col-md-8 col-sm-6 " >
 					<div class="card-body  text-success p-5">
 						<h4 class="text-center mb-3 text-uppercase">Add Doctor</h4>
 						<form action="../add-doctor" method="post" class="">

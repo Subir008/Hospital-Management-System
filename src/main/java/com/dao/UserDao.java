@@ -140,6 +140,9 @@ public class UserDao {
 			user.setName(rs.getString(2));
 			user.setEmail(rs.getString(3));
 			user.setPassword(rs.getString(4));
+			user.setContact(rs.getString(5));
+			user.setAddress(rs.getString(6));
+			user.setGender(rs.getString(7));
 		}
 		return user;
 	}
@@ -197,6 +200,19 @@ public class UserDao {
 		
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setString(1, user.getName());
+		ps.setString(2, user.getEmail());
+		ps.setString(3, user.getContact());
+		ps.setString(4, user.getAddress());
+		ps.setString(5, user.getGender());
+		ps.setInt(6, user.getId());
+		
+		int i = ps.executeUpdate();
+		
+		if (i == 1)
+		{
+			flag = true;
+		}
+		
 		return flag;
 	}
 	
