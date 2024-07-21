@@ -43,7 +43,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 		<!-- Register Section -->
 		<div class="register-section">
 			<div class="auto-container mb-5">
-				<div class="inner-container">
+				 <div class="inner-container"> 
 					<div class="row clearfix">
 
 						<!-- Popup of account creation -->
@@ -104,7 +104,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 							</div>
 						</a:if>
 
-						<div class="col-md-6  mb-4">
+						<div class=" col-lg-6 col-md-5 col-sm-5 ml-2 mr-2  mb-4 ">
 							<div class="card paint-card">
 								<div class="card-body">
 									<!-- Column -->
@@ -138,7 +138,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 													</div>
 												</div>
 												<div class="form-group">
-													<button class="theme-btn btn-style-one">
+													<button class="theme-btn btn-style-one d-flex justify-content-center col-12">
 														<span class="btn-wrap"> <span class="text-one">Register
 														</span> <span class="text-two">Register</span>
 														</span>
@@ -153,7 +153,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 						</div>
 
 						<!-- Column -->
-						<div class="col-md-6  mb-4">
+						<div class="col-md-5 col-sm-5 mb-3 ml-1 mr-1">
 							<div class="card paint-card">
 								<div class="card-body">
 									<div class="column col-lg-12 col-md-12 col-sm-12">
@@ -182,7 +182,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 													</div>
 												</div>
 												<div class="form-group">
-													<button class="theme-btn btn-style-one">
+													<button class="theme-btn btn-style-one d-flex justify-content-center col-12">
 														<span class="btn-wrap"> <span class="text-one">Login
 																here</span> <span class="text-two">Login here</span>
 														</span>
@@ -200,7 +200,7 @@ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
 
 					</div>
-				</div>
+				 </div> 
 			</div>
 		</div>
 		<!-- End Register Section -->
