@@ -103,6 +103,7 @@ public class DoctorDao {
 			doctor.setBio(rs.getString(9));
 			doctor.setAddress(rs.getString(10));
 			doctor.setExperience(rs.getString(11));
+			doctor.setProfile_img(rs.getString(12));
 
 		}
 
@@ -139,7 +140,7 @@ public class DoctorDao {
 	public boolean updateProfile(Doctor doctor) throws SQLException {
 		boolean flag = false;
 		
-		String sql = "UPDATE doctor_master SET full_name = ? ,dob = ?, qualification = ?, specialist = ?, email = ?, contact = ?, bio = ?, address= ?, experience= ? WHERE doc_id = ?";
+		String sql = "UPDATE doctor_master SET full_name = ? ,dob = ?, qualification = ?, specialist = ?, email = ?, contact = ?, bio = ?, address= ?, experience= ?, profile_img = ? WHERE doc_id = ?";
 		
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
@@ -152,7 +153,8 @@ public class DoctorDao {
 		ps.setString(7, doctor.getBio());
 		ps.setString(8, doctor.getAddress());
 		ps.setString(9, doctor.getExperience());
-		ps.setInt(10, doctor.getDoc_id());
+		ps.setString(10, doctor.getProfile_img());
+		ps.setInt(11, doctor.getDoc_id());
 		
 		int i = ps.executeUpdate();
 		
