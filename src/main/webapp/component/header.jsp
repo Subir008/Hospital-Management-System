@@ -87,7 +87,7 @@
 								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">About</a>
 									<ul>
-										<li><a href="about.html">About us</a></li>
+										<li><a href="#">About us</a></li>
 										<li><a href="faq.html">Faq's</a></li>
 										<li><a href="price.html">Price</a></li>
 										<li><a href="price-2.html">Price 02</a></li>
