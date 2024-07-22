@@ -23,10 +23,10 @@
 	<div class="auto-container mt-5" style="max-width: 100%">
 		<h3 class="text-center">Doctor Review</h3>
 
-		<div class="row clearfix m-4 pb-5">
+		<div class="row clearfix mt-3  pb-5">
 			<div class="col-12 d-flex justify-content-center">
-				<div class="card paint-card paint-card col-8">
-					<div class="card-body  text-success p-5">
+				<div class="card paint-card paint-card col-12">
+					<div class="card-body  text-success pl-3 pr-3">
 						<!-- <h4 class="text-center mb-3 text-uppercase">Update Doctor
 							Details</h4> -->
 						

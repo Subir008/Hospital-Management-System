@@ -8425,11 +8425,11 @@
 }
 
 .register-section .row{
-	margin:0px -40px;
+	/* margin:0px -40px; */
 }
 
 .register-section .column{
-	padding:0px 40px;
+/* 	padding:0px 40px;*/
 }
 
 .register-section h4{

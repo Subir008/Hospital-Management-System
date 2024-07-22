@@ -25,9 +25,9 @@ out.print(connection); */
 	<div class="page-wrapper">
 
 		<!-- Preloader -->
-		<!--  	<div class="preloader"></div> -->
+		 	<div class="preloader"></div> 
 		<!-- End Preloader -->
-
+		
 
 		<!-- Header Added -->
 		<%@include file="component/header.jsp"%>

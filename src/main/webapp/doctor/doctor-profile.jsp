@@ -72,7 +72,7 @@
 							<ul class="doctor-info-list">
 								<li><span><strong>Doctor Name</strong> </span><%= doctor.getFull_name() %></li>
 								<li><span><strong>Primary Speciality</strong> </span><%= doctor.getSpecialist() %></li>
-								<li><span><strong>Experience </strong> </span>10+ Years</li>
+								<li><span><strong>Experience </strong> </span><%= doctor.getExperience() %>+ Years</li>
 							</ul>
 							<h3>Education & Training</h3>
 							<ul class="doctor-info-list">

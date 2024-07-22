@@ -82,12 +82,12 @@ font-weight: bold;
 		<div class="auto-container" style="max-width: 100%">
 			<h3 class="text-center text-uppercase">Patient Appointment List</h3>
 
-			<div class="row clearfix m-4 pb-5">
+			<div class="row clearfix mt-4 pb-5">
 				<!-- Form Column -->
 				<div class="form-column col-12 col-md-12 col-sm-12 ">
-					<div class="inner-column">
+					<div class="inner-column table-responsive">
 
-						<table class="table table-hover table-bordered">
+						<table class="table table-hover table-bordered" style="overflow:auto;">
 							<thead class="text-center thead-dark">
 								<tr>
 									<th scope="col">Full Name</th>
