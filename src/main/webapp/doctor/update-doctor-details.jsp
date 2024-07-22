@@ -151,11 +151,11 @@ textarea {
 	</a:if>
 
 
-	<div class="row clearfix m-5 pb-5">
+	<div class="row clearfix ml-2 mr-2 mt-3  pb-5">
 		<!-- Form Column -->
-		<div class="col-md-4">
+		<div class="col-md-4 mb-4">
 			<div class="card paint-card ">
-				<div class="card-body  text-success pl-5 pr-5">
+				<div class="card-body  text-success pl-3 pr-3 col-12">
 					<div class="inner-column">
 						<h3 class="text-center pb-4 text-danger text-uppercase">Change
 							Password</h3>
@@ -189,7 +189,7 @@ textarea {
 
 										<button
 											class="theme-btn btn-style-one d-flex justify-content-center col-12">
-											<span class="btn-wrap"> <span class="text-one">Update
+											<span class="btn-wrap" style=" font-size: 14px";> <span class="text-one">Update
 													Password </span> <span class="text-two">Update Password</span>
 											</span>
 										</button>
@@ -216,7 +216,7 @@ textarea {
 			%>
 
 			<div class="card paint-card col-md-10">
-				<div class="card-body contact-form default-form text-success p-5">
+				<div class="card-body contact-form default-form text-success pl-3 pr-3">
 					<h3 class="text-center mb-3 pb-4 text-uppercase text-primary">Update
 						Doctor Details</h3>
 						
@@ -296,8 +296,8 @@ textarea {
 
 						<input type="hidden" name="doc_id" value="<%=doctor.getDoc_id()%>">
 						<div class="form-group  mt-5 text-center">
-							<button class="theme-btn btn-style-one  col-8">
-								<span class="btn-wrap " style="float: none; font-size: 17px">
+							<button class="theme-btn btn-style-one d-flex justify-content-center col-12">
+								<span class="btn-wrap " style=" font-size: 14px;">
 									<span class="text-one">Update Details</span> <span
 									class="text-two">Update Details</span>
 								</span>

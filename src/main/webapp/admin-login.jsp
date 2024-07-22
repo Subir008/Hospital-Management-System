@@ -159,7 +159,7 @@ svg {
 							</div>
 						</a:if>
 
-						<div class="col-md-6  offset-md-3 mb-4">
+						<div class="col-md-7  offset-md-3 mb-4">
 							<div class="card paint-card">
 								<div class="card-body">
 									<!-- Column -->
@@ -167,7 +167,7 @@ svg {
 										<!-- Login Form -->
 										<div class="styled-form ">
 											<h3 class="text-center font-weight-bold text-uppercase"
-												style="color: rgb(249, 49, 59)">Login </h3>
+												style="color: rgb(249, 49, 59)">Admin Login </h3>
 												
 											<form method="post" action="adminLogin">
 												<div class="form-group">

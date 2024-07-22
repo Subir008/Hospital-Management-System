@@ -87,7 +87,7 @@
 								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">About</a>
 									<ul>
-										<li><a href="#">About us</a></li>
+										<li><a href="about-us.jsp">About us</a></li>
 										<li><a href="faq.html">Faq's</a></li>
 										<li><a href="price.html">Price</a></li>
 										<li><a href="price-2.html">Price 02</a></li>
@@ -117,15 +117,11 @@
 												Service</a></li>
 										<li><a href="rehabitation.html">Health Rehabitation</a></li>
 									</ul></li>
-								<li class="dropdown"><a href="#">department</a>
-									<ul>
-										<li><a href="department.html">department</a></li>
-										<li><a href="department-detail.html">department
-												Detail</a></li>
-									</ul></li>
+								<li class=""><a href="department.jsp">department</a>
+									</li>
 
 
-								<li class="dropdown"><a href="#">Blog</a>
+							<%-- 	<li class="dropdown"><a href="#">Blog</a>
 									<ul>
 										<li><a href="blog.html">Our Blog</a></li>
 										<li><a href="blog-left-sidebar.html">Blog left
@@ -133,13 +129,8 @@
 										<li><a href="blog-classic.html">Blog Classic</a></li>
 										<li><a href="blog-detail.html">Blog Detail</a></li>
 										<li><a href="not-found.html">Not Found</a></li>
-									</ul></li>
-								<li class="dropdown"><a href="#">Contact</a>
-									<ul>
-										<li><a href="contact.html">Contact 01</a></li>
-										<li><a href="contact-2.html">Contact 02</a></li>
-										<li><a href="contact-3.html">Contact 03</a></li>
-									</ul></li>
+									</ul></li> --%>
+								<li class=""><a href="contact-us.jsp">Contact</a></li>
 								<a:if test="${empty userObj }">
 									<li class="dropdown"><a href="#">Administration</a>
 										<ul>
