@@ -1,5 +1,5 @@
 	<!--Main Footer-->
-    <footer class="main-footer" style="background-image: url(assets/images/background/pattern-8.png)">
+    <footer class="main-footer mt-5" style="background-image: url(assets/images/background/pattern-8.png)">
 		<!-- Vector One -->
 		<span class="footer-vector_one">
 			<img src="assets/images/resource/footer-vector-1.png" alt="" />

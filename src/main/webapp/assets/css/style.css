@@ -825,7 +825,7 @@
 	font-family: 'Font Awesome 6 Free';
 }
 
-.department-one_block-inner:hover ..department-one_block-more{
+.department-one_block-inner:hover .department-one_block-more{
 	color:var(--white-color);
 }
 
@@ -2565,7 +2565,7 @@
 }
 
 .testimonial-two.style-two{
-	padding-bottom:400px;
+	/* padding-bottom:400px; */
 	margin-top:var(--margin-zero);
 	padding-top:var(--padding-top-110);
 }
@@ -2817,6 +2817,7 @@
 .timetable-one{
 	position:relative;
 	padding:110px 0px 0px;
+	margin: 0px 0px 100px;
 }
 
 .timetable-one.style-two{
@@ -6969,7 +6970,7 @@
 	font-family: 'Font Awesome 6 Free';
 }
 
-.department-one_block-two_inner:hover ..department-one_block-two_more{
+.department-one_block-two_inner:hover .department-one_block-two_more{
 	color:var(--white-color);
 }
 
