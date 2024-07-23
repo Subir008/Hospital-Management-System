@@ -98,12 +98,8 @@
 										<li><a href="coming-soon.html">Coming Soon</a></li>
 										<li><a href="terms.html">Terms Condition</a></li>
 										<li><a href="privacy.html">Privacy Policy</a></li>
-										<li class="dropdown"><a href="#">Doctors</a>
-											<ul>
-												<li><a href="doctors.html">Doctors</a></li>
-												<li><a href="doctor-detail.html">Doctor Detail</a></li>
-												<li><a href="doctor-detail-2.html">Doctor Detail 02</a></li>
-											</ul></li>
+										<li class=""><a href="doctor.jsp">Doctors</a>
+										</li>
 									</ul></li>
 								<li class="dropdown"><a href="#">Services</a>
 									<ul>

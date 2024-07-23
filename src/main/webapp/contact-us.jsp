@@ -14,6 +14,9 @@
 	<!-- Header Added -->
 	<%@include file="component/header.jsp"%>
 
+	<!-- Preloader -->
+	<div class="preloader"></div>
+	<!-- End Preloader -->
 	
 	<!-- Page Title -->
     <section class="page-title" style="background-image:url(assets/images/background/3.jpg)">
