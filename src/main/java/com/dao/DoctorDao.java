@@ -68,6 +68,10 @@ public class DoctorDao {
 			doctor.setEmail(rs.getString(6));
 			doctor.setContact(rs.getString(7));
 			doctor.setPassword(rs.getString(8));
+			doctor.setBio(rs.getString(9));
+			doctor.setAddress(rs.getString(10));
+			doctor.setExperience(rs.getString(11));
+			doctor.setProfile_img(rs.getString(12));
 
 			list.add(doctor);
 		}

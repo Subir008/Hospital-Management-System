@@ -1,5 +1,11 @@
+<%@page import="java.util.List"%>
+<%@page import="com.configuration.Configuration"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.dto.Doctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,16 +49,42 @@
 					Certified and experienced <br> doctors in our clinic
 				</h2>
 			</div>
+			
+			<%
+				// Fetching all the doctor data
+				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
+				List<Doctor> list = doctorDao.fetchDoctor();
+				
+			%>
 
 			<div class="row clearfix">
 
+				<%
+					for (Doctor doctor : list)
+					{
+				%>
 				<!-- Team Block Two -->
 				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
 					<div class="team-block_two-inner">
 						<div class="team-block_two-image">
+							<a href="doctor-details.jsp?id=<%= doctor.getDoc_id() %>">
 							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-1.jpg" alt="" /></a>
+							<%
+								// If doctor image is not available show a default image 
+								if(doctor.getProfile_img() == null)
+								{
+							%>
+							<img
+								src="upload_content/doctor.png" style="height:360px; width:270px;"  alt="" />
+							<%
+								}else{
+							%>
+							<img
+								src="upload_content/<%= doctor.getProfile_img() %>" style="height:360px; width:270px;" alt="" />							
+							<%
+								}
+							%>
+							</a>
 							<div class="team-block_two-social">
 								<span class="team-block_two-share flaticon-plus"></span>
 								<div class="team-block_two-social-list">
@@ -69,223 +101,26 @@
 						</div>
 						<div class="team-block_two-content">
 							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Justin Beckham</a>
+								<a href="doctor-details.jsp?id=<%= doctor.getDoc_id() %>"><%= doctor.getFull_name() %></a>
 							</h6>
-							<div class="team-block_two-category">Cardiology Specialist</div>
+							<%
+								if(doctor.getSpecialist().equals("General"))
+								{
+							%>
+							<div class="team-block_two-category"><%= doctor.getSpecialist() %> Mediticion  </div>							
+							<%
+								}else{
+							%>
+							<div class="team-block_two-category"><%= doctor.getSpecialist() %> Specialist </div>
+							<%
+								}
+							%>
 						</div>
 					</div>
 				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-2.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Edward Willey</a>
-							</h6>
-							<div class="team-block_two-category">General Doctor</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-3.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Jennifer Winds</a>
-							</h6>
-							<div class="team-block_two-category">Neurology Specialist</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-4.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Smith Johnson</a>
-							</h6>
-							<div class="team-block_two-category">Dermatologist</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-9.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Edward Willey</a>
-							</h6>
-							<div class="team-block_two-category">General Doctor</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-10.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Justin Beckham</a>
-							</h6>
-							<div class="team-block_two-category">Cardiology Specialist</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-11.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Jennifer Winds</a>
-							</h6>
-							<div class="team-block_two-category">Neurology Specialist</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block Two -->
-				<div class="team-block_two col-lg-3 col-md-4 col-sm-6">
-					<div class="team-block_two-inner">
-						<div class="team-block_two-image">
-							<div class="team-block_two-gradient"></div>
-							<a href="doctor-details.jsp"><img
-								src="assets/images/resource/team-12.jpg" alt="" /></a>
-							<div class="team-block_two-social">
-								<span class="team-block_two-share flaticon-plus"></span>
-								<div class="team-block_two-social-list">
-									<a href="https://youtube.com/"
-										class="youtube fa-brands fa-youtube"></a> <a
-										href="https://twitter.com/"
-										class="twitter fa-brands fa-twitter"></a> <a
-										href="https://facebook.com/"
-										class="facebook fa-brands fa-facebook-f"></a> <a
-										href="https://instagram.com/"
-										class="instagram fa-brands fa-instagram"></a>
-								</div>
-							</div>
-						</div>
-						<div class="team-block_two-content">
-							<h6 class="team-block_two-title">
-								<a href="doctor-details.jsp">Smith Johnson</a>
-							</h6>
-							<div class="team-block_two-category">Dermatologist</div>
-						</div>
-					</div>
-				</div>
-
+				<%
+					}
+				%>
 			</div>
 
 		</div>
