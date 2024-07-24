@@ -46,7 +46,7 @@ public class Delete_Doctor extends HttpServlet
 				resp.sendRedirect("admin/doctor.jsp");
 				
 			}
-		} catch (SQLException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
