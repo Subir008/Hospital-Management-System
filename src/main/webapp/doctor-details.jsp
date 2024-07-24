@@ -1,3 +1,6 @@
+<%@page import="com.configuration.Configuration"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.dto.Doctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -19,12 +22,19 @@
 	<div class="preloader"></div>
 	<!-- End Preloader -->
 
+	<%
+	int id = Integer.parseInt(request.getParameter("id"));
+	DoctorDao doctorDao = new DoctorDao(Configuration.configure());
+	Doctor doctor = doctorDao.fetchDoctorById(id);
+	%>
 
 	<!-- Page Title -->
 	<section class="page-title"
 		style="background-image: url(assets/images/background/3.jpg)">
 		<div class="auto-container">
-			<h2>Dr. Justin Beckham</h2>
+			<h2>
+				Dr.
+				<%=doctor.getFull_name()%></h2>
 			<ul class="bread-crumb clearfix">
 				<li><a href="index.jsp">Home</a></li>
 				<li>Doctor Detail</li>
@@ -43,23 +53,47 @@
 					<div
 						class="doctor-detail_image-column col-lg-4 col-md-12 col-sm-12">
 						<div class="doctor-detail_image">
-							<img src="assets/images/resource/doctor-1.jpg" alt="" />
+						<%
+								// If doctor image is not available show a default image 
+								if(doctor.getProfile_img() == null)
+								{
+							%>
+							<img
+								src="upload_content/doctor.png" style="height:400px; width:300px;"  alt="" />
+							<%
+								}else{
+							%>
+							<img
+								src="upload_content/<%= doctor.getProfile_img() %>" style="height:400px; width:300px;" alt="" />							
+							<%
+								}
+							%>
+							
 						</div>
 					</div>
 
 					<!-- Info Column -->
 					<div class="doctor-detail_info-column col-lg-8 col-md-12 col-sm-12">
-						<div class="doctor-detail_designation">Cardiology Specialist</div>
-						<h2 class="doctor-detail_name">Justin Beckham</h2>
-						<div class="doctor-detail_text">I am specialists in
-							digestive organs, including the stomach, bowels, pancreas, liver,
-							and gallbladder. You might see them for abdominal pain, ulcers,
-							diarrhea, jaundice, or cancers in your digestive organs. They
-							also do a colonoscopy and other tests for colon cancer</div>
+						<%
+						if (doctor.getSpecialist().equals("General")) {
+						%>
+						<div class="doctor-detail_designation">
+							<%=doctor.getSpecialist()%>
+							Mediation
+						</div>
+						<%
+						}else{
+						%>						
+						<div class="doctor-detail_designation"> <%= doctor.getSpecialist() %> Specialist</div> 
+						<%
+						}
+						%>
+						<h2 class="doctor-detail_name"> <%= doctor.getFull_name() %></h2>
+						<div class="doctor-detail_text"> <%= doctor.getBio() %></div>
 						<ul class="doctor-detail_list">
-							<li><span class="icon fa-solid fa-phone fa-fw"></span>+1-234-2346</li>
+							<li><span class="icon fa-solid fa-phone fa-fw"></span> <%= doctor.getContact() %></li>
 							<li><span class="icon fa-solid fa-envelope fa-fw"></span> <a
-								href="mailto:Info@merit.Com">Info@merit.Com</a></li>
+								href="mailto:Info@merit.Com"> <%= doctor.getEmail() %></a></li>
 							<li><span class="icon fa-solid fa-link fa-fw"></span>merit.Com</li>
 						</ul>
 
@@ -224,6 +258,6 @@
 
 	<!-- Js File Include -->
 	<%@include file="component/js-file.jsp"%>
-	
+
 </body>
 </html>
