@@ -87,32 +87,17 @@
 								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">About</a>
 									<ul>
+										<li class=""><a href="doctor.jsp">Doctors</a></li>
 										<li><a href="about-us.jsp">About us</a></li>
-										<li><a href="faq.html">Faq's</a></li>
-										<li><a href="price.html">Price</a></li>
-										<li><a href="price-2.html">Price 02</a></li>
-										<li><a href="process.html">Process</a></li>
-										<li><a href="gallery.html">Projects</a></li>
+										<li><a href="faq.jsp">Faq's</a></li>
+										<li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+										<li><a href="terms&condition.jsp">Terms Condition</a></li>
 										<li><a href="timetable.html">Timetable</a></li>
-										<li><a href="testimonial.html">Testimonial</a></li>
-										<li><a href="coming-soon.html">Coming Soon</a></li>
-										<li><a href="terms.html">Terms Condition</a></li>
-										<li><a href="privacy.html">Privacy Policy</a></li>
-										<li class=""><a href="doctor.jsp">Doctors</a>
-										</li>
-									</ul></li>
-								<li class="dropdown"><a href="#">Services</a>
+										</ul></li>
+								<%-- <li class="dropdown"><a href="#">Services</a>
 									<ul>
-										<li><a href="services.html">Services</a></li>
-										<li><a href="intensive-care.html">Trauma intensive
-												care</a></li>
-										<li><a href="community.html">Community Services</a></li>
-										<li><a href="diagnosis.html">Diagnosis Investigation</a></li>
-										<li><a href="surgical.html">Medical Surgical</a></li>
-										<li><a href="specialised.html">Specialised Support
-												Service</a></li>
 										<li><a href="rehabitation.html">Health Rehabitation</a></li>
-									</ul></li>
+									</ul></li> --%>
 								<li class=""><a href="department.jsp">department</a>
 									</li>
 

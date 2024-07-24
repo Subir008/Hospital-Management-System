@@ -222,9 +222,8 @@
 	<!-- Footer Section added -->
 	<%@include file="component/footer.jsp"%>
 
-
 	<!-- Js File Include -->
-
 	<%@include file="component/js-file.jsp"%>
+	
 </body>
 </html>
