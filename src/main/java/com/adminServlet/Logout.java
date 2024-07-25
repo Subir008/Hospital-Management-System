@@ -10,19 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/logout")
-public class Logout extends HttpServlet
-{
+public class Logout extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-	{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		
+
 		session.removeAttribute("adminObj");
-		
+
 		resp.sendRedirect("admin-login.jsp");
-		
+
 		session.setAttribute("logoutmessage", " Logout Successfull");
 	}
-	
+
 }

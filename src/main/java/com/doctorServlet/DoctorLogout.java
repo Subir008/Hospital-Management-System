@@ -10,21 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/doctor-logout")
-public class DoctorLogout extends HttpServlet
-{
+public class DoctorLogout extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-	{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		
+
 		session.removeAttribute("doctorObj");
-		
+
 		session.setAttribute("logoutmessage", "Log out Successfull ..... ");
 
 		resp.sendRedirect("doctor-login.jsp");
-				
+
 	}
-	
 
 }

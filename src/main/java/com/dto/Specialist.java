@@ -1,9 +1,8 @@
 package com.dto;
 
-public class Specialist 
-{
-	private int id ;
-	
+public class Specialist {
+	private int id;
+
 	private String specialist_name;
 
 	public Specialist() {
@@ -32,6 +31,5 @@ public class Specialist
 	public void setSpecialist_name(String specialist_name) {
 		this.specialist_name = specialist_name;
 	}
-	
-	
+
 }
