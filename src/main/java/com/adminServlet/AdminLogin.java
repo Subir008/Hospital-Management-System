@@ -24,7 +24,7 @@ public class AdminLogin extends HttpServlet {
 			// Starting the Session
 			HttpSession session = req.getSession();
 
-			//Storing default login credentials to the variable
+			// Storing default login credentials to the variable
 			String admin_email = "admin@gmail.com";
 			String admin_password = "admin";
 

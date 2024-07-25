@@ -29,12 +29,14 @@ public class AddSpecialist extends HttpServlet {
 		// Creating object of SpecialistDao and passing the db connetion
 		SpecialistDao specialistDao = new SpecialistDao(Configuration.configure());
 
-		// Creating objet of Specialist and passing the data that have been taken from the user
+		// Creating objet of Specialist and passing the data that have been taken from
+		// the user
 		Specialist specialist = new Specialist(0, name);
 
 		boolean flag = false;
 
-		// Taking the specialist added value either true or false from specialistDao class
+		// Taking the specialist added value either true or false from specialistDao
+		// class
 		try {
 			flag = specialistDao.addSpecialist(specialist);
 		} catch (SQLException e) {

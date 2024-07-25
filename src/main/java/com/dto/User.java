@@ -1,39 +1,35 @@
 package com.dto;
 
-public class User 
-{
+public class User {
 	private int id;
-	
-	private String name ;
-	
+
+	private String name;
+
 	private String password;
-	
+
 	private String email;
-	
+
 	private String contact;
-	
+
 	private String address;
-	
+
 	private String gender;
-	
-	
+
 	public User() {
 		super();
-		
+
 	}
 
-	public User(String name , String email , String password, int id)
-	{
+	public User(String name, String email, String password, int id) {
 		super();
 		this.id = id;
-		this.name = name ;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
-	
-	
+
 	// These constructor is used in update user profile
-	public User(int id, String name, String email, String contact,  String gender, String address) {
+	public User(int id, String name, String email, String contact, String gender, String address) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -98,7 +94,5 @@ public class User
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	
-	
+
 }
