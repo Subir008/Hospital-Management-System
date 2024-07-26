@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="hidden-bar-wrapper">
+<body class="hidden-bar-wrapper bg-light">
 
 	<%@include file="component/navbar.jsp"%>
 
@@ -61,8 +61,8 @@
 			</a:if>
 
 
-			<div class="col-md-4 mb-2">
-				<div class="card paint-card pb-4" data-toggle="modal"
+			<div class="col-md-4 mb-2 ">
+				<div class="card paint-card pb-4 " data-toggle="modal"
 					data-target="#exampleModal">
 					<div class="card-body text-center text-success">
 						<i class="fa fa-address-card fa-4x" aria-hidden="true"></i>
@@ -84,6 +84,25 @@
 				</a>
 			</div>
 			
+			<div class="col-md-4 mb-2 ">
+				<a href="add-department.jsp">
+					<div class="card paint-card pb-4">
+						<div class="card-body text-center text-success">
+							<i class="fa-solid fa-user-plus fa-4x"></i>
+							<p class="card-text fs-4 text-center">Add Department</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			
+			
+			
+			
+		</div>
+		
+		
+		<div class="row mt-4">
+		
 			<%
 			// Getting count of total number of Doctor
 				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
@@ -101,12 +120,6 @@
 					</div>
 				</a>
 			</div>
-			
-			
-		</div>
-		
-		
-		<div class="row mt-4">
 		
 			<%
 				// Getting count of total number of User

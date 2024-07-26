@@ -43,8 +43,7 @@ public class Update_Profile_Details extends HttpServlet {
 		// part.getSubmittedFileName() gets the name of the uploaded file.
 		String fileName = part.getSubmittedFileName();
 
-		// Get Server Path: String path = getServletContext().getRealPath("") +
-		// "folder-name(where the data will be stored)";
+		// Get Server Path: String path = getServletContext().getRealPath("") + "folder-name(where the data will be stored)";
 		String path = getServletContext().getRealPath("") + "upload_content";
 		// System.out.println(path);
 
