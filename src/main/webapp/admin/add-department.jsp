@@ -39,7 +39,7 @@
 			<div class="col-md-12 d-flex justify-content-center">
 
 				<!-- Popup of Doctor Addition-->
-				<a:if test="${not empty Success  }">
+				<a:if test="${not empty InsertSuccessfull  }">
 					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-dialog-centered " role="document">
 							<div class="modal-content paint-card">
@@ -51,18 +51,18 @@
 									</button>
 									<br>
 									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-										${Success}</h3>
+										${InsertSuccessfull}</h3>
 								</div>
 
 							</div>
 						</div>
 					</div>
 
-					<a:remove var="Success" scope="session" />
+					<a:remove var="InsertSuccessfull" scope="session" />
 				</a:if>
 
 				<!-- Popup of Error -->
-				<a:if test="${not empty Failed  }">
+				<a:if test="${not empty Error  }">
 					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -74,13 +74,13 @@
 									</button>
 									<br>
 									<h3 class="text-center text-danger fs-4 font-weight-bold p-3">
-										${Failed}</h3>
+										${Error}</h3>
 								</div>
 
 							</div>
 						</div>
 					</div>
-					<a:remove var="Failed" scope="session" />
+					<a:remove var="Error" scope="session" />
 				</a:if>
 
 				<div class="card paint-card col-md-8 col-sm-6 " >

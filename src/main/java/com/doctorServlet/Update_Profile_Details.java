@@ -47,7 +47,7 @@ public class Update_Profile_Details extends HttpServlet {
 		String path = getServletContext().getRealPath("") + "upload_content";
 		// System.out.println(path);
 
-		// Create Directory if it Doesn’t Exist: File file = new File(path);
+		// Create Directory if it Doesn’t Exist by invoking File Class of io.File package: File file = new File(path);
 		File file = new File(path);
 
 		// Write File to Server: part.write(path + File.separator + fileName);
