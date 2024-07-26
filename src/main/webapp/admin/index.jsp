@@ -1,3 +1,4 @@
+<%@page import="com.dao.DepartmentDao"%>
 <%@page import="com.dao.UserDao"%>
 <%@page import="com.dao.AppointmentDao"%>
 <%@page import="com.configuration.Configuration"%>
@@ -122,6 +123,24 @@
 			</div>
 		
 			<%
+			// Getting count of total number of Doctor
+				DepartmentDao departmentDao = new DepartmentDao(Configuration.configure());
+				 int departmentCount = departmentDao.countDepartment();
+			%>
+			<div class="col-md-4 mb-2">
+				<a href="department.jsp">
+					<div class="card paint-card">
+						<div class="card-body text-center text-success">
+							<i class="fas fa-user-md fa-4x"></i>
+							<p class="card-text fs-4">
+								Department <br> <%= departmentCount %>
+							</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		
+			<%
 				// Getting count of total number of User
 				UserDao userDao = new UserDao(Configuration.configure());
 				int userCount = userDao.countAllUser();
@@ -138,6 +157,11 @@
 				</a>
 				</div>
 			</div>
+		
+		</div>
+		
+		
+		<div class="row mt-4">
 		
 			<%
 			// Getting count of total number of Appointment

@@ -13,6 +13,11 @@ public class Department
 	private String dept_details;
 	
 	private String dept_img;
+	
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Department(String department_name, String flaticon_name, String heading, String dept_details,
 			String dept_img) {

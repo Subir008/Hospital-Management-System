@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dto.Department"%>
+<%@page import="com.configuration.Configuration"%>
+<%@page import="com.dao.DepartmentDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -33,138 +37,48 @@
 		</div>
 	</section>
 	<!-- End Page Title -->
+	
+	<%
+		// Sending connection to the DepartmentDao Class to invoke its method
+		DepartmentDao departmentDao = new DepartmentDao(Configuration.configure());
+		List<Department> list = departmentDao.fetchAllDepartment();
+	%>
 
 	<!-- Department One -->
 	<section class="department-one mb-5">
 		<div class="auto-container">
 			<div class="row clearfix">
-
+				
+				<%
+					for(Department department : list)
+					{
+				%>
+				
 				<!-- Department Block -->
 				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
 					<div class="department-one_block-two_inner">
 						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-7.jpg" alt="" /></a>
+							<a href="department-details.jsp?id=<%= department.getDept_id() %>">
+							<img src="upload_content/department/<%= department.getDept_img() %>" style="height: 270px;" alt="" /></a>
 						</div>
 						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-liver"></span>
+							<span class="department-one_block-two_icon <%= department.getFlaticon_name() %>"></span>
 							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Pulmonology</a>
+								<a href="department-details.jsp"><%= department.getDepartment_name() %></a>
 							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
+							<div class="department-one_block-two_text"><%= department.getHeading() %></div>
 							<a class="department-one_block-two_more"
 								href="department-details.jsp">read more</a>
 						</div>
 					</div>
 				</div>
-
-				<!-- Department Block -->
-				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="department-one_block-two_inner">
-						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-8.jpg" alt="" /></a>
-						</div>
-						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-hematology"></span>
-							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Hematology</a>
-							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
-							<a class="department-one_block-two_more"
-								href="department-details.jsp">read more</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Department Block -->
-				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="department-one_block-two_inner">
-						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-9.jpg" alt="" /></a>
-						</div>
-						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-stethoscope"></span>
-							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Dermatology</a>
-							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
-							<a class="department-one_block-two_more"
-								href="department-details.jsp">read more</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Department Block -->
-				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="department-one_block-two_inner">
-						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-10.jpg" alt="" /></a>
-						</div>
-						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-heart"></span>
-							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Cardiology</a>
-							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
-							<a class="department-one_block-two_more"
-								href="department-details.jsp">read more</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Department Block -->
-				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="department-one_block-two_inner">
-						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-11.jpg" alt="" /></a>
-						</div>
-						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-orthopedics"></span>
-							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Orthopedic</a>
-							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
-							<a class="department-one_block-two_more"
-								href="department-details.jsp">read more</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Department Block -->
-				<div class="department-one_block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="department-one_block-two_inner">
-						<div class="department-one_block-two_image">
-							<a href="department-details.jsp"><img
-								src="assets/images/resource/department-12.jpg" alt="" /></a>
-						</div>
-						<div class="department-one_block-two_content">
-							<span class="department-one_block-two_icon flaticon-skin"></span>
-							<h5 class="department-one_block-two_heading">
-								<a href="department-details.jsp">Neurology</a>
-							</h5>
-							<div class="department-one_block-two_text">Nemo ipsam
-								voluptatem voluptas aspernatura ut dsa ursa. There are many
-								variations of by injected</div>
-							<a class="department-one_block-two_more"
-								href="department-details.jsp">read more</a>
-						</div>
-					</div>
-				</div>
-
+				
+				
+				<%
+					}
+				%>
+				
+				
 			</div>
 		</div>
 	</section>
