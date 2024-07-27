@@ -118,7 +118,7 @@ public class DoctorDao {
 	public boolean updateDoctor(Doctor doctor) throws SQLException {
 		boolean flag = false;
 
-		String sql = "UPDATE doctor_master SET full_name = ? ,dob = ?, qualification = ?, specialist = ?, email = ?, contact = ?, password = ? WHERE doc_id = ?";
+		String sql = "UPDATE doctor_master SET full_name = ? ,dob = ?, qualification = ?, specialist = ?, email = ?, contact = ? WHERE doc_id = ?";
 
 		PreparedStatement ps = connection.prepareStatement(sql);
 
@@ -128,8 +128,7 @@ public class DoctorDao {
 		ps.setString(4, doctor.getSpecialist());
 		ps.setString(5, doctor.getEmail());
 		ps.setString(6, doctor.getContact());
-		ps.setString(7, doctor.getPassword());
-		ps.setInt(8, doctor.getDoc_id());
+		ps.setInt(7, doctor.getDoc_id());
 
 		int i = ps.executeUpdate();
 

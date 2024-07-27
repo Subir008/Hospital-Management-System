@@ -56,7 +56,7 @@
 					<div class="image-column col-lg-5 col-md-12 col-sm-12">
 						<div class="inner-column">
 							<div class="image">
-								<img src="../upload_content/<%= doctor.getProfile_img() %>" height="500px" width="400px" alt="" />
+								<img src="../upload_content/doctor-profile/<%= doctor.getProfile_img() %>" height="500px" width="400px" alt="" />
 								<div class="number-box">
 									<!-- 								<a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="play-button" data-fancybox="" data-caption=""><i class="ripple"></i><i class="icon fa-solid fa-play fa-fw"></i></a> -->
 								<%= doctor.getContact() %>

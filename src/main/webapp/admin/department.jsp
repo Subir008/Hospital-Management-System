@@ -29,6 +29,12 @@
 	font-size: 17px;
 }
 
+@media only screen and (max-width: 600px ) {
+	.details {
+		width: 500px;
+	}
+}
+
 .list {
 	width: 160px;
 }
@@ -49,7 +55,7 @@
 			<div class="col-md-12 table-responsive">
 
 				<!-- Popup of Doctor Updation -->
-				<a:if test="${not empty UpdateSuccess  }">
+				<a:if test="${not empty UpdateSuccessfull  }">
 					<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-dialog-centered " role="document">
 							<div class="modal-content paint-card">
@@ -61,14 +67,14 @@
 									</button>
 									<br>
 									<h3 class="text-center text-success fs-4 font-weight-bold p-3">
-										${UpdateSuccess}</h3>
+										${UpdateSuccessfull}</h3>
 								</div>
 
 							</div>
 						</div>
 					</div>
 
-					<a:remove var="UpdateSuccess" scope="session" />
+					<a:remove var="UpdateSuccessfull" scope="session" />
 				</a:if>
 
 				<!-- Popup of Doctor Deletion -->
@@ -120,77 +126,104 @@
 
 
 				<h4 class="text-center mb-3 text-uppercase">Department Details</h4>
-				<table class="table table-hover table-bordered">
-					<thead class="text-center table-primary">
-						<tr>
-							<th scope="col">Department Image</th>
-							<th scope="col">Department Name</th>
-							<th scope="col">Heading</th>
-							<th scope="col">Department Details</th>
-							<th scope="col">Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<%
-						DepartmentDao departmentDao = new DepartmentDao(Configuration.configure());
-						List<Department> list = departmentDao.fetchAllDepartment();
+				<div style="overflow: auto">
 
-						for (Department department : list) {
-						%>
-						<tr class="text-center">
-							<td><img alt="" src="../upload_content/department/<%=department.getDept_img()%>" height="00px" width="200px" > </td>
-							<td><%=department.getDepartment_name()%></td>
-							<td><%=department.getHeading()%></td>
-							<td><%=department.getDept_details()%></td>
-							<td><div class="dropdown dropdown-inline">
-									<a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
-										data-toggle="dropdown"><i class="fa-solid fa-gear"></i> </a>
-									<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-										<ul class="nav nav-hoverable flex-column">
-											<li class="nav-item list"><a class="nav-link list-item "
-												href="update-doctor-details.jsp?id=<%=department.getDept_id()%>"><i
-													class="text-success nav-icon fas fa-pen"></i><span
-													class="nav-text">Edit Details</span></a></li>
-											<li class="nav-item list"><a class="nav-link list-item"
-												data-toggle="modal" data-target="#exampleModalCenter"><i
-													class="text-danger nav-icon fas fa-trash"></i><span
-													class="nav-text">Delete Details</span></a></li>
-										</ul>
+					<table class="table table-hover table-bordered"
+						style="overflow: auto">
+						<thead class="text-center table-primary">
+							<tr>
+								<th scope="col">Image</th>
+								<th scope="col">Name</th>
+								<th scope="col">Heading</th>
+								<th scope="col">Department Details</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+							DepartmentDao departmentDao = new DepartmentDao(Configuration.configure());
+							List<Department> list = departmentDao.fetchAllDepartment();
+
+							for (Department department : list) {
+							%>
+							<tr class="text-center">
+								<td>
+								<%
+									if (department.getDept_img() == null)
+									{
+								%>
+								<img alt=""
+									src="../upload_content/department/no_image.png"
+									style="height: 250px; width: 250px;">
+								
+								<%
+									}else
+									{
+								%>
+								
+								<img alt=""
+									src="../upload_content/department/<%=department.getDept_img()%>"
+									style="height: 100px!important; width: 300px!important;">
+								<%
+									}
+								%>
+									
+									</td>
+								<td><%=department.getDepartment_name()%></td>
+								<td><%=department.getHeading()%></td>
+								<td class="details"><%=department.getDept_details()%></td>
+								<td><div class="dropdown dropdown-inline">
+										<a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
+											data-toggle="dropdown"><i class="fa-solid fa-gear"></i> </a>
+										<div
+											class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+											<ul class="nav nav-hoverable flex-column">
+												<li class="nav-item list"><a
+													class="nav-link list-item "
+													href="update-department-details.jsp?id=<%=department.getDept_id()%>"><i
+														class="text-success nav-icon fas fa-pen"></i><span
+														class="nav-text">Edit Details</span></a></li>
+												<li class="nav-item list"><a class="nav-link list-item"
+													data-toggle="modal" data-target="#exampleModalCenter"><i
+														class="text-danger nav-icon fas fa-trash"></i><span
+														class="nav-text">Delete Details</span></a></li>
+											</ul>
+										</div>
+									</div></td>
+							</tr>
+
+
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalCenterTitle"
+								aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content ">
+										<div class="modal-header " style="display: block;">
+											<h5 class="modal-title text-center"
+												id="exampleModalLongTitle">Do You Really Want To Delete
+												?</h5>
+										</div>
+										<div class="modal-body text-center">
+											<a class="btn btn-primary" role="button"
+												href="../delete-department-details?id=<%=department.getDept_id()%> ">Yes</a>
+											<button type="button" class="btn btn-danger"
+												data-dismiss="modal">No</button>
+										</div>
+
 									</div>
-								</div></td>
-						</tr>
-
-
-						<!-- Modal -->
-						<div class="modal fade" id="exampleModalCenter" tabindex="-1"
-							role="dialog" aria-labelledby="exampleModalCenterTitle"
-							aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered" role="document">
-								<div class="modal-content ">
-									<div class="modal-header " style="display: block;">
-										<h5 class="modal-title text-center" id="exampleModalLongTitle">Do
-											You Really Want To Delete ?</h5>
-									</div>
-									<div class="modal-body text-center">
-										<a class="btn btn-primary" role="button"
-											href="../delete-doctor-details?id=<%=department.getDept_id()%> ">Yes</a>
-										<button type="button" class="btn btn-danger"
-											data-dismiss="modal">No</button>
-									</div>
-
 								</div>
 							</div>
-						</div>
 
-						<%
-						}
-						%>
+							<%
+							}
+							%>
 
 
-					</tbody>
+						</tbody>
 
-				</table>
-
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

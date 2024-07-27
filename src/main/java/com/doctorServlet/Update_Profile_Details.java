@@ -44,7 +44,7 @@ public class Update_Profile_Details extends HttpServlet {
 		String fileName = part.getSubmittedFileName();
 
 		// Get Server Path: String path = getServletContext().getRealPath("") + "folder-name(where the data will be stored)";
-		String path = getServletContext().getRealPath("") + "upload_content";
+		String path = getServletContext().getRealPath("") + "upload_content" + File.separator + "doctor-profile";
 		// System.out.println(path);
 
 		// Create Directory if it Doesn’t Exist by invoking File Class of io.File package: File file = new File(path);

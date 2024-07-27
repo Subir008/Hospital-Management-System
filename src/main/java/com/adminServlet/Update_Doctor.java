@@ -25,11 +25,10 @@ public class Update_Doctor extends HttpServlet {
 		String specialist = req.getParameter("specialist");
 		String email = req.getParameter("email");
 		String contact = req.getParameter("contact");
-		String password = req.getParameter("password");
 		int id = Integer.parseInt(req.getParameter("id"));
 
 		// Create object of doctor class and Pass the information to the class
-		Doctor doctor = new Doctor(id, name, dob, qualification, specialist, email, contact, password);
+		Doctor doctor = new Doctor(id, name, dob, qualification, specialist, email, contact);
 
 		// Create object of DoctorDao Class and pass the db connection
 		DoctorDao doctorDao = new DoctorDao(Configuration.configure());

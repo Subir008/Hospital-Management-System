@@ -80,7 +80,7 @@
 								}else{
 							%>
 							<img
-								src="upload_content/<%= doctor.getProfile_img() %>" style="height:360px; width:270px;" alt="" />							
+								src="upload_content/doctor-profile/<%= doctor.getProfile_img() %>" style="height:360px; width:270px;" alt="" />							
 							<%
 								}
 							%>
