@@ -89,7 +89,7 @@
 				<a href="add-department.jsp">
 					<div class="card paint-card pb-4">
 						<div class="card-body text-center text-success">
-							<i class="fa-solid fa-user-plus fa-4x"></i>
+							<i class="fa-solid fa-pen-to-square fa-4x"></i>
 							<p class="card-text fs-4 text-center">Add Department</p>
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 				<a href="department.jsp">
 					<div class="card paint-card">
 						<div class="card-body text-center text-success">
-							<i class="fas fa-user-md fa-4x"></i>
+						<i class="fa-solid fa-person-chalkboard fa-4x"></i>
 							<p class="card-text fs-4">
 								Department <br> <%= departmentCount %>
 							</p>

@@ -29,6 +29,26 @@ public class Department
 		this.dept_img = dept_img;
 	}
 
+	public Department(int dept_id, String department_name, String flaticon_name, String heading, String dept_details) {
+		super();
+		this.dept_id = dept_id;
+		this.department_name = department_name;
+		this.flaticon_name = flaticon_name;
+		this.heading = heading;
+		this.dept_details = dept_details;
+	}
+
+	public Department(int dept_id, String department_name, String flaticon_name, String heading, String dept_details,
+			String dept_img) {
+		super();
+		this.dept_id = dept_id;
+		this.department_name = department_name;
+		this.flaticon_name = flaticon_name;
+		this.heading = heading;
+		this.dept_details = dept_details;
+		this.dept_img = dept_img;
+	}
+
 	public int getDept_id() {
 		return dept_id;
 	}

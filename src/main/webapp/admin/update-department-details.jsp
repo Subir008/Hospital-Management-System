@@ -1,3 +1,5 @@
+<%@page import="com.dto.Department"%>
+<%@page import="com.dao.DepartmentDao"%>
 <%@page import="com.dto.Doctor"%>
 <%@page import="com.dao.DoctorDao"%>
 <%@page import="com.dto.Specialist"%>
@@ -14,7 +16,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Doctor Profile</title>
+<title>Department Details</title>
 
 <%@include file="component/css-file.jsp"%>
 
@@ -68,60 +70,46 @@
 
 				<%
 				int id = Integer.parseInt(request.getParameter("id"));
-				DoctorDao doctorDao = new DoctorDao(Configuration.configure());
-				Doctor doctor = doctorDao.fetchDoctorById(id);
+				DepartmentDao departmentDao = new DepartmentDao(Configuration.configure());
+				Department department = departmentDao.fetchDepartmentById(id);
 				%>
 				
 				<div class="card paint-card col-md-6">
-					<div class="card-body  text-success p-4">
-						<h4 class="text-center mb-3 text-uppercase">Update Doctor Details</h4>
-						<form action="../update-doctor" method="post" class="">
+					<div class="card-body  text-success p-5">
+						<h4 class="text-center mb-3 text-uppercase">Update Department Details</h4>
+						<form action="../update-department" method="post" class="" enctype="multipart/form-data">
 							<div class=" form-group row mb-3">
-								<label class="form-label  font-size">Full Name</label> <input
-									type="text" class="form-control " name="name"
-									placeholder="Enter Your Name" required="required" value="<%=doctor.getFull_name()%>">
+								<label class="form-label  font-size">Department Name</label> <input
+									type="text" class="form-control " name="department_name"
+									placeholder="Enter Department Name" required="required" value="<%= department.getDepartment_name() %>">
 							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">DOB</label> <input
-									type="date" class="form-control " name="dob"
-									placeholder="Enter Your Date of Birth" value="<%= doctor.getDob() %>">
-							</div>
+							
 							<div class="form-group row mb-3 ">
-								<label class="form-label  font-size">Qualification</label> <input
-									type="text" class="form-control " name="qualification"
-									placeholder="Enter Your Qualification" value="<%= doctor.getQualification() %>">
+								<label class="form-label  font-size">Flaticon Name</label> <input
+									type="text" class="form-control " name="flaticon_name"
+									placeholder="Enter Flaticon Name" value="<%= department.getFlaticon_name() %>">
 							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Specialist</label> <select
-									class="form-control " name="specialist">
-									<option><%= doctor.getSpecialist() %></option>
-
-									<!-- Fetching all the speialist category -->
-									<%
-									SpecialistDao specialistDao = new SpecialistDao(Configuration.configure());
-									List<Specialist> list = specialistDao.getSpecialist();
-
-									for (Specialist specialist : list) {
-									%>
-									<option><%=specialist.getSpecialist_name()%></option>
-									<%
-									}
-									%>
-								</select>
+							
+							<div class="form-group row mb-3 ">
+								<label class="form-label  font-size">Heading </label> <input
+									type="text" class="form-control " name="heading"
+									placeholder="Enter Heading" value="<%= department.getHeading() %>">
 							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Email</label> <input
-									type="email" class="form-control " name="email"
-									placeholder="Enter Your Email" required="required" value="<%= doctor.getEmail() %>">
+							
+							<div class="form-group row mb-3 ">
+								<label class="form-label  font-size">Department Details </label> <textarea
+									type="text" class="form-control " name="dept_details"
+									placeholder="Enter Department Details" rows="10" ><%= department.getDept_details() %></textarea>
 							</div>
-							<div class="form-group row mb-3">
-								<label class="form-label  font-size">Contact No.</label> <input
-									type="tel" class="form-control " name="contact"
-									placeholder="Enter Your Contact No." required="required" value="<%= doctor.getContact() %>">
+							
+							 <div class="form-group row mb-3 ">
+								<label class="form-label  font-size">Department Image </label> <input
+									type="file" class="form-control " name="dept_img"
+								 >
 							</div>
 							
 
-							<input type="hidden" name="id" value="<%= doctor.getDoc_id() %>">
+							<input type="hidden" name="dept_id" value="<%= department.getDept_id() %>">
 							<div class="form-group  mt-5 text-center">
 								<button class="theme-btn btn-style-one  col-8">
 									<span class="btn-wrap " style="float: none; font-size: 17px">

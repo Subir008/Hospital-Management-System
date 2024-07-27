@@ -115,18 +115,23 @@
 					<a:remove var="Failed" scope="session" />
 				</a:if>
 
-
+				
 
 				<h4 class="text-center mb-3 text-uppercase">Doctor Details</h4>
+				<div style="overflow: auto">
+				
 				<table class="table table-hover table-bordered">
 					<thead class="text-center table-primary">
 						<tr>
+							<th scope="col">Profile</th>
 							<th scope="col">Full Name</th>
 							<th scope="col">Date of Birth</th>
 							<th scope="col">Qualification</th>
 							<th scope="col">Specialist</th>
 							<th scope="col">Email</th>
 							<th scope="col">Contact</th>
+							<th scope="col">Address</th>
+							<th scope="col">Experience</th>
 							<th scope="col">Action</th>
 						</tr>
 					</thead>
@@ -138,12 +143,33 @@
 						for (Doctor doctor : list1) {
 						%>
 						<tr class="text-center">
+							
+							<td>
+							<%
+								if (doctor.getProfile_img() == null)
+								{
+							%>
+										<img alt=""
+											src="../upload_content/doctor-profile/no_image.png"
+											style="height: 200px; width: 200px;">
+								<%
+								}else
+								{
+									%>
+							<img alt="" src="../upload_content/doctor-profile/<%= doctor.getProfile_img() %>" style="height: 200px; width: 200px;" ></td>																
+								<%
+								}
+								%>
+								</td>	
+		
 							<td><%=doctor.getFull_name()%></td>
 							<td><%=doctor.getDob()%></td>
 							<td><%=doctor.getQualification()%></td>
 							<td><%=doctor.getSpecialist()%></td>
 							<td><%=doctor.getEmail()%></td>
 							<td><%=doctor.getContact()%></td>
+							<td><%=doctor.getAddress()%></td>
+							<td><%=doctor.getExperience()%></td>
 							<td><div class="dropdown dropdown-inline">
 									<a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
 										data-toggle="dropdown"><i class="fa-solid fa-gear"></i> </a>
@@ -203,7 +229,7 @@
 			$('#exampleModal').modal('show');
 		});
 	</script>
-
+	
 
 </body>
 </html>

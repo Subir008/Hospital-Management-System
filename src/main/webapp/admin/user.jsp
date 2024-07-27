@@ -30,16 +30,19 @@
 	<div class="auto-container mt-4" style="max-width: 100%">
 			<h3 class="text-center"> User List</h3>
 
-			<div class="row clearfix m-4 pb-5">
+			<div class="row clearfix  pb-5">
 				<!-- Form Column -->
 				<div class="form-column col-12 col-md-12 col-sm-12 ">
-					<div class="inner-column">
+					<div class="inner-column" style="overflow: auto">
 
 						<table class="table table-hover table-bordered">
 							<thead class="text-center  thead-dark">
 								<tr>
 									<th scope="col">Full Name</th>
 									<th scope="col">Email</th>
+									<th scope="col">Contact</th>
+									<th scope="col">Address</th>
+									<th scope="col">Gender</th>
 								</tr>
 							</thead>
 
@@ -55,6 +58,9 @@
 								<tr class="text-center table-danger">
 									<th scope="row"><%=user.getName()%></th>
 									<td><%= user.getEmail() %></td>
+									<td><%= user.getContact() %></td>
+									<td><%= user.getAddress() %></td>
+									<td><%= user.getGender() %></td>
 									
 								</tr>
 

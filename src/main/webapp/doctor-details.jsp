@@ -64,7 +64,7 @@
 								}else{
 							%>
 							<img
-								src="upload_content/<%= doctor.getProfile_img() %>" style="height:400px; width:300px;" alt="" />							
+								src="upload_content/doctor-profile/<%= doctor.getProfile_img() %>" style="height:400px; width:300px;" alt="" />							
 							<%
 								}
 							%>

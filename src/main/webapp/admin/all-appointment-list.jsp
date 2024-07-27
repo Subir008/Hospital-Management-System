@@ -31,10 +31,10 @@
 	<div class="auto-container mt-4" style="max-width: 100%">
 			<h3 class="text-center text-uppercase">Patient Appointment List</h3>
 
-			<div class="row clearfix m-4 pb-5">
+			<div class="row clearfix  pb-5">
 				<!-- Form Column -->
 				<div class="form-column col-12 col-md-12 col-sm-12 ">
-					<div class="inner-column">
+					<div class="inner-column" style="overflow: auto">
 
 						<table class="table table-hover table-bordered">
 							<thead class="text-center  thead-dark">

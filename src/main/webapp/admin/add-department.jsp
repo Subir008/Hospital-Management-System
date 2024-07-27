@@ -84,7 +84,7 @@
 				</a:if>
 
 				<div class="card paint-card col-md-8 col-sm-6 " >
-					<div class="card-body  text-success p-5">
+					<div class="card-body  text-success p-4">
 						<h4 class="text-center mb-3 text-uppercase">Add Department</h4>
 						<form action="../add-department" method="post" enctype="multipart/form-data">
 							<div class=" form-group row mb-3">

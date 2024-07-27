@@ -32,7 +32,7 @@ public class Doctor {
 	}
 
 	public Doctor(int doc_id, String full_name, String dob, String qualification, String specialist, String email,
-			String contact, String password) {
+			String contact) {
 		super();
 		this.doc_id = doc_id;
 		this.full_name = full_name;
@@ -41,7 +41,6 @@ public class Doctor {
 		this.specialist = specialist;
 		this.email = email;
 		this.contact = contact;
-		this.password = password;
 	}
 
 	// It is used in Profile Update page in Doctor admin Panel
