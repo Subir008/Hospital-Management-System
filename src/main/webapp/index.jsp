@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dto.Department"%>
+<%@page import="com.dao.DepartmentDao"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.configuration.Configuration"%>
 
@@ -25,118 +28,12 @@ out.print(connection); */
 	<div class="page-wrapper">
 
 		<!-- Preloader -->
-		 	<div class="preloader"></div> 
+		<div class="preloader"></div>
 		<!-- End Preloader -->
-		
+
 
 		<!-- Header Added -->
 		<%@include file="component/header.jsp"%>
-
-
-
-		<!-- Sidebar Cart Item -->
-		<div class="xs-sidebar-group info-group">
-			<div class="xs-overlay xs-bg-black"></div>
-			<div class="xs-sidebar-widget">
-				<div class="sidebar-widget-container">
-					<div class="close-button">
-						<span class="fa fa-solid fa-xmark fa-fw"></span>
-					</div>
-					<div class="sidebar-textwidget">
-
-						<!-- Sidebar Info Content -->
-						<div class="sidebar-info-contents">
-							<div class="content-inner">
-
-								<!-- Title Box -->
-								<div class="title-box">
-									<h5>
-										Shopping <span>Bag</span>
-									</h5>
-									<div class="price">$15 from free economy shipping</div>
-								</div>
-
-								<!-- Empty Cart Box -->
-								<div class="empty-cart-box">
-									<!-- No Product -->
-									<div class="no-cart">
-										<span class="icon fa fa-sharp fa-solid fa-cart-shopping fa-fw"></span>
-										No products in cart.
-									</div>
-								</div>
-
-								<!-- Lower Box -->
-								<div class="lower-box">
-									<h5>
-										Popular <span>Suggestions</span>
-									</h5>
-
-									<!-- Post Block -->
-									<div class="post-block">
-										<div class="inner-box">
-											<div class="image">
-												<img src="assets/images/resource/post-thumb-1.jpg" alt="" />
-											</div>
-											<h6>
-												<a href="#">Hematology Machine</a>
-											</h6>
-											<div class="rating">
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span>
-											</div>
-											<div class="price-box">$125</div>
-											<a class="theme-btn bag-btn" href="#">add to bag</a>
-										</div>
-									</div>
-
-									<!-- Post Block -->
-									<div class="post-block">
-										<div class="inner-box">
-											<div class="image">
-												<img src="assets/images/resource/post-thumb-2.jpg" alt="" />
-											</div>
-											<h6>
-												<a href="#">Dermatology</a>
-											</h6>
-											<div class="rating">
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span>
-											</div>
-											<div class="price-box">$205</div>
-											<a class="theme-btn bag-btn" href="#">add to bag</a>
-										</div>
-									</div>
-
-									<!-- Post Block -->
-									<div class="post-block">
-										<div class="inner-box">
-											<div class="image">
-												<img src="assets/images/resource/post-thumb-3.jpg" alt="" />
-											</div>
-											<h6>
-												<a href="#">Cardiology</a>
-											</h6>
-											<div class="rating">
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-												<span class="fa fa-star"></span>
-											</div>
-											<div class="price-box">$125</div>
-											<a class="theme-btn bag-btn" href="#">add to bag</a>
-										</div>
-									</div>
-
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- Slider One -->
 		<section class="slider-one">
@@ -170,7 +67,7 @@ out.print(connection); */
 									</div>
 								</div>
 								<div class="slider-one_buttons">
-									<a href="appointment.html" class="theme-btn btn-style-one">
+									<a href="user-appointment.jsp" class="theme-btn btn-style-one">
 										<span class="btn-wrap"> <span class="text-one">Make
 												Appointment</span> <span class="text-two">Make Appointment</span>
 									</span>
@@ -215,7 +112,7 @@ out.print(connection); */
 									</div>
 								</div>
 								<div class="slider-one_buttons">
-									<a href="appointment.html" class="theme-btn btn-style-one">
+									<a href="user-appointment.jsp" class="theme-btn btn-style-one">
 										<span class="btn-wrap"> <span class="text-one">Make
 												Appointment</span> <span class="text-two">Make Appointment</span>
 									</span>
@@ -260,7 +157,7 @@ out.print(connection); */
 									</div>
 								</div>
 								<div class="slider-one_buttons">
-									<a href="appointment.html" class="theme-btn btn-style-one">
+									<a href="user-appointment.jsp" class="theme-btn btn-style-one">
 										<span class="btn-wrap"> <span class="text-one">Make
 												Appointment</span> <span class="text-two">Make Appointment</span>
 									</span>
@@ -609,175 +506,43 @@ out.print(connection); */
 				</div>
 
 				<div class="four-item-carousel owl-carousel owl-theme">
-
+				
+				<%
+					// Sending connection information to the DepartmentDao Class  
+					DepartmentDao departmentDao = new DepartmentDao (Configuration.configure());
+					
+					// Fetching details of every department and store in the list
+					List<Department> list = departmentDao.fetchAllDepartment();
+					
+					// Iterate the list and show the details
+					for (Department department: list)
+					{
+				%>
 					<!-- Department Block -->
 					<div class="department-one_block">
 						<div class="department-one_block-inner">
 							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-1.jpg" alt="" /></a>
+								<a href="department-detail.jsp?id=<%= department.getDept_id() %>"><img
+									src="upload_content/department/<%= department.getDept_img() %>" alt="" /></a>
 							</div>
 							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-hematology"></span>
+								<span class="department-one_block-icon <%= department.getFlaticon_name() %>"></span>
 								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Hematology</a>
+									<a href="department-detail.jsp?id=<%= department.getDept_id() %>">Hematology</a>
 								</h5>
 								<div class="department-one_block-text">Nemo ipsam
 									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
 									ursa.</div>
 								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
+									href="department-detail.jsp?id=<%= department.getDept_id() %>">read more</a>
 							</div>
 						</div>
 					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-2.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-skin"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Dermatology</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-3.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-heart"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Cardiology</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-4.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-orthopedics"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Orthopedic</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-1.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-hematology"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Hematology</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-2.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-skin"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Dermatology</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-3.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-heart"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Cardiology</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Department Block -->
-					<div class="department-one_block">
-						<div class="department-one_block-inner">
-							<div class="department-one_block-image">
-								<a href="department-detail.html"><img
-									src="assets/images/resource/department-4.jpg" alt="" /></a>
-							</div>
-							<div class="department-one_block-content">
-								<span class="department-one_block-icon flaticon-orthopedics"></span>
-								<h5 class="department-one_block-heading">
-									<a href="department-detail.html">Orthopedic</a>
-								</h5>
-								<div class="department-one_block-text">Nemo ipsam
-									voluptatem quia voluptas sit enim aspernatura ut odit ddsa
-									ursa.</div>
-								<a class="department-one_block-more"
-									href="department-detail.html">read more</a>
-							</div>
-						</div>
-					</div>
-
+				
+				<%
+					}
+				%>
+			
 				</div>
 			</div>
 		</section>
@@ -1118,103 +883,9 @@ out.print(connection); */
 		</section>
 		<!-- End Testimonial One -->
 
-		<!-- News One -->
-		<section class="news-one">
-			<div class="auto-container">
-				<!-- Sec Title -->
-				<div class="sec-title centered">
-					<div class="sec-title_title">OUR BLOG</div>
-					<h2 class="sec-title_heading">
-						You get every single <br> news feeds.
-					</h2>
-				</div>
-				<div class="row clearfix">
-
-					<!-- News Block One -->
-					<div class="news-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one-inner wow fadeInLeft"
-							data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="news-block_one-image">
-								<a href="blog-detail.html"><img
-									src="assets/images/resource/news-1.jpg" alt="" /></a>
-							</div>
-							<div class="news-block_one-content">
-								<div class="news-block_one-date">
-									<span>22</span> jan 2024
-								</div>
-								<ul class="news-block_one-meta">
-									<li><span class="icon fa-solid fa-folder-open fa-fw"></span>HEALTH</li>
-									<li><span class="icon fa-solid fa-comments fa-fw"></span>Comments</li>
-								</ul>
-								<h5 class="news-block_one-heading">
-									<a href="blog-detail.html">What does your blood type have
-										to do with your health?</a>
-								</h5>
-								<div class="news-block_one-text">Lorem ipsum dolor sit
-									amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- News Block One -->
-					<div class="news-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one-inner wow fadeInUp"
-							data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="news-block_one-image">
-								<a href="blog-detail.html"><img
-									src="assets/images/resource/news-2.jpg" alt="" /></a>
-							</div>
-							<div class="news-block_one-content">
-								<div class="news-block_one-date">
-									<span>22</span> jan 2024
-								</div>
-								<ul class="news-block_one-meta">
-									<li><span class="icon fa-solid fa-folder-open fa-fw"></span>HEALTH</li>
-									<li><span class="icon fa-solid fa-comments fa-fw"></span>Comments</li>
-								</ul>
-								<h5 class="news-block_one-heading">
-									<a href="blog-detail.html">Healthy habits to reduce the
-										risks of heart diseases</a>
-								</h5>
-								<div class="news-block_one-text">Lorem ipsum dolor sit
-									amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- News Block One -->
-					<div class="news-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="news-block_one-inner wow fadeInRight"
-							data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="news-block_one-image">
-								<a href="blog-detail.html"><img
-									src="assets/images/resource/news-3.jpg" alt="" /></a>
-							</div>
-							<div class="news-block_one-content">
-								<div class="news-block_one-date">
-									<span>22</span> jan 2024
-								</div>
-								<ul class="news-block_one-meta">
-									<li><span class="icon fa-solid fa-folder-open fa-fw"></span>HEALTH</li>
-									<li><span class="icon fa-solid fa-comments fa-fw"></span>Comments</li>
-								</ul>
-								<h5 class="news-block_one-heading">
-									<a href="blog-detail.html">Why men should stay on top of
-										health screenings</a>
-								</h5>
-								<div class="news-block_one-text">Lorem ipsum dolor sit
-									amet, consectetur adipisicing elit, sed do eiusmod tempor</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<!-- End News One -->
-
+		
 		<!-- Newsletter Section -->
-		<section class="newsletter-one">
+		<section class="newsletter-one mt-5">
 			<div class="auto-container">
 				<div class="newsletter-one_inner-container"
 					style="background-image: url(assets/images/background/pattern-7.png)">
