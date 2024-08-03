@@ -41,7 +41,6 @@ public class DepartmentDao {
 
 	// Method for fetching all departments data
 	public List<Department> fetchAllDepartment() throws SQLException {
-		boolean flag = false;
 
 		List<Department> list = new ArrayList<Department>();
 		Department department = null;
