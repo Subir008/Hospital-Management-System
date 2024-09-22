@@ -5,7 +5,8 @@
 <!-- Header Style One -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-	<a class="navbar-brand" href="#">Navbar</a>
+	<a class="navbar-brand" href="#"><img src="../assets/images/logo-png.png" alt="" width="250px"
+							title=""></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
 		aria-controls="navbarSupportedContent" aria-expanded="false"
